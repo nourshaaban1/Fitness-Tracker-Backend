@@ -32,25 +32,6 @@ Supports users, workouts, health metrics, goals, social interactions, and offlin
 - **Database:** PostgreSQL (with UUID primary keys & JSONB support)
 - **Auth:** Spring Security (to be added)
 - **Build Tool:** Maven
-
----
-
-## 📂 Project Structure
-fitness-tracker-backend/
-│── src/main/java/com/fitnessapp/
-│ ├── model/ # JPA entities
-│ │ ├── enums/ # Enum types
-│ ├── repository/ # Spring Data JPA repositories
-│ ├── service/ # Business logic layer (to be added)
-│ ├── controller/ # REST controllers (to be added)
-│
-│── src/main/resources/
-│ ├── application.yml # Database config
-│
-│── pom.xml # Maven dependencies
-│── README.md # Project documentation
-
-
 ---
 
 ## 🗄 Database Schema (PostgreSQL)
