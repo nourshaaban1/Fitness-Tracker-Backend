@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -25,16 +26,55 @@ public class ProfileService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public UserDto getProfile(String authHeader) {
+    // Admin only endpoint to get all users
+    public List<UserDto> getAllUsers(String authHeader) {
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             throw new RuntimeException("Missing or invalid Authorization header");
         }
 
         String token = authHeader.substring(7);
-        UUID userId = jwtService.extractUserId(token);
+        String role = jwtService.extractRole(token);
 
-        User user = userRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+        if (!"ADMIN".equalsIgnoreCase(role)) {
+            throw new RuntimeException("Access denied: Admins only");
+        }
+
+        List<User> users = userRepository.findAllByDeletedAtIsNull();
+
+        return users.stream()
+                .map(user -> {
+                    UserPreferences prefs = user.getPreferences();
+                    return new UserDto(
+                            user.getFirstName(),
+                            user.getLastName(),
+                            user.getEmail(),
+                            user.getProfilePic(),
+                            prefs != null ? prefs.getTheme() : null,
+                            prefs != null ? prefs.isNotificationsEnabled() : null,
+                            prefs != null ? prefs.getWorkoutReminderTime() : null
+                    );
+                })
+                .toList();
+    }
+
+    // Get profile (own or any if admin)
+    public UserDto getProfile(String authHeader, UUID targetUserId) {
+        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+            throw new RuntimeException("Missing or invalid Authorization header");
+        }
+
+        String token = authHeader.substring(7);
+        UUID requesterId = jwtService.extractUserId(token);
+        String role = jwtService.extractRole(token);
+
+        User user;
+        if ("ADMIN".equalsIgnoreCase(role) && targetUserId != null) {
+            user = userRepository.findByIdAndDeletedAtIsNull(targetUserId)
+                    .orElseThrow(() -> new RuntimeException("User not found"));
+        } else {
+            user = userRepository.findByIdAndDeletedAtIsNull(requesterId)
+                    .orElseThrow(() -> new RuntimeException("User not found"));
+        }
 
         // Map to DTO
         UserPreferences prefs = user.getPreferences();
@@ -49,16 +89,24 @@ public class ProfileService {
         );
     }
 
-    public UpdateProfileResponse updateProfile(String authHeader, UpdateProfileRequest request) throws Exception {
+    // Update profile (own or any if admin)
+    public UpdateProfileResponse updateProfile(String authHeader, UpdateProfileRequest request, UUID targetUserId) throws Exception {
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             throw new RuntimeException("Missing or invalid Authorization header");
         }
 
         String token = authHeader.substring(7);
-        UUID userId = jwtService.extractUserId(token);
+        UUID requesterId = jwtService.extractUserId(token);
+        String role = jwtService.extractRole(token);
 
-        User user = userRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+        User user;
+        if ("ADMIN".equalsIgnoreCase(role) && targetUserId != null) {
+            user = userRepository.findByIdAndDeletedAtIsNull(targetUserId)
+                    .orElseThrow(() -> new RuntimeException("User not found"));
+        } else {
+            user = userRepository.findByIdAndDeletedAtIsNull(requesterId)
+                    .orElseThrow(() -> new RuntimeException("User not found"));
+        }
 
         // Keep track if email changed
         boolean emailChanged = false;
@@ -148,26 +196,34 @@ public class ProfileService {
         return new UpdateProfileResponse(dto, newToken);
     }
 
-    public void deleteProfile(String authHeader) {
-    if (authHeader == null || !authHeader.startsWith("Bearer ")) {
-        throw new RuntimeException("Missing or invalid Authorization header");
+    // Delete profile (soft delete) (own or any if admin)
+    public void deleteProfile(String authHeader, UUID targetUserId) {
+        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+            throw new RuntimeException("Missing or invalid Authorization header");
+        }
+
+        String token = authHeader.substring(7);
+        UUID requesterId = jwtService.extractUserId(token);
+        String role = jwtService.extractRole(token);
+
+        User user;
+        if ("ADMIN".equalsIgnoreCase(role) && targetUserId != null) {
+            user = userRepository.findByIdAndDeletedAtIsNull(targetUserId)
+                    .orElseThrow(() -> new RuntimeException("User not found"));
+        } else {
+            user = userRepository.findByIdAndDeletedAtIsNull(requesterId)
+                    .orElseThrow(() -> new RuntimeException("User not found"));
+        }
+
+        // Soft delete using your BaseEntityWithSoftDelete method
+        user.softDelete();
+
+        // Make email reusable
+        user.setEmail(user.getEmail() + "_deleted_" + System.currentTimeMillis());
+
+        // Invalidate all tokens immediately
+        user.setTokenVersion(user.getTokenVersion() + 1);
+
+        userRepository.save(user);
     }
-
-    String token = authHeader.substring(7);
-    UUID userId = jwtService.extractUserId(token);
-
-    User user = userRepository.findById(userId)
-            .orElseThrow(() -> new RuntimeException("User not found"));
-
-    // Soft delete using your BaseEntityWithSoftDelete method
-    user.softDelete();
-
-    // Make email reusable
-    user.setEmail(user.getEmail() + "_deleted_" + System.currentTimeMillis());
-
-    // Invalidate all tokens immediately
-    user.setTokenVersion(user.getTokenVersion() + 1);
-
-    userRepository.save(user);
-}
 }
