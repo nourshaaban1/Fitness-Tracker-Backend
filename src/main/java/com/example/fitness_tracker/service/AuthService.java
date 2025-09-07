@@ -49,9 +49,28 @@ public class AuthService {
         String profilePicPath = null;
         if (profilePic != null && !profilePic.isEmpty()) {
             try {
+                // Validate content type
+                String contentType = profilePic.getContentType();
+                if (contentType == null || 
+                !(contentType.equalsIgnoreCase("image/jpeg") || 
+                    contentType.equalsIgnoreCase("image/png") || 
+                    contentType.equalsIgnoreCase("image/gif"))) {
+                    throw new IllegalArgumentException("Invalid file type. Only JPEG, PNG, GIF are allowed.");
+                }
+
+                // Optional: validate file extension as extra safety
+                String originalFilename = profilePic.getOriginalFilename();
+                if (originalFilename != null &&
+                    !(originalFilename.toLowerCase().endsWith(".jpg") ||
+                    originalFilename.toLowerCase().endsWith(".jpeg") ||
+                    originalFilename.toLowerCase().endsWith(".png") ||
+                    originalFilename.toLowerCase().endsWith(".gif"))) {
+                    throw new IllegalArgumentException("Invalid file extension. Only .jpg, .jpeg, .png, .gif allowed.");
+                }
+
+                // Save file
                 String fileName = UUID.randomUUID() + "_" + profilePic.getOriginalFilename();
                 
-                // Safe external folder
                 Path uploadPath = Paths.get(System.getProperty("user.dir"), "uploads/profile-pics");
                 Files.createDirectories(uploadPath);
 
@@ -59,6 +78,8 @@ public class AuthService {
                 profilePic.transferTo(filePath.toFile());
 
                 profilePicPath = "/uploads/profile-pics/" + fileName; // save relative path in DB
+            } catch (IllegalArgumentException e) {
+                throw e; // propagate validation exception
             } catch (Exception e) {
                 throw new RuntimeException("Failed to save profile picture: " + e.getMessage());
             }
