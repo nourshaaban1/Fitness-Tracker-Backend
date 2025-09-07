@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.example.fitness_tracker.domain.enums.Role;
 import com.example.fitness_tracker.domain.models.auditable.BaseEntityWithSoftDelete;
@@ -58,4 +60,9 @@ public class User extends BaseEntityWithSoftDelete {
     /** One-to-one relationship with preferences */
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private UserPreferences preferences;
+
+    /** One-to-many relationship with health metric */
+    @Builder.Default
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<HealthMetric> healthMetrics = new ArrayList<>();
 }

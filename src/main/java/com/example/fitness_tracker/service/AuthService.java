@@ -5,6 +5,7 @@ import com.example.fitness_tracker.domain.dto.Auth.LoginResponse;
 import com.example.fitness_tracker.domain.dto.Auth.SignupRequest;
 import com.example.fitness_tracker.domain.enums.Role;
 import com.example.fitness_tracker.domain.models.User;
+import com.example.fitness_tracker.domain.models.UserPreferences;
 import com.example.fitness_tracker.repository.UserRepository;
 import com.example.fitness_tracker.security.JwtService;
 import lombok.RequiredArgsConstructor;
@@ -94,6 +95,12 @@ public class AuthService {
                 .role(role)
                 .lastLogin(Instant.now())
                 .build();
+
+        // Create default preferences
+        UserPreferences preferences = new UserPreferences();
+        preferences.setUser(user);
+        // Default values are automatically set in UserPreferences (Theme.LIGHT, notificationsEnabled = true)
+        user.setPreferences(preferences);
 
         userRepository.save(user);
 

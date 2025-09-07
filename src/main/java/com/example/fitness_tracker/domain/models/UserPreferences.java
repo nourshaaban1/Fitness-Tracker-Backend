@@ -1,5 +1,8 @@
 package com.example.fitness_tracker.domain.models;
 
+import java.time.LocalTime;
+
+import com.example.fitness_tracker.domain.enums.Theme;
 import com.example.fitness_tracker.domain.models.auditable.BaseEntityWithSoftDelete;
 
 import jakarta.persistence.*;
@@ -19,14 +22,15 @@ public class UserPreferences extends BaseEntityWithSoftDelete {
     private User user;
 
     /** Example preferences (can expand later) */
+    @Builder.Default
+    @Enumerated(EnumType.STRING)
     @Column(name = "theme", nullable = false, length = 20)
-    @Builder.Default
-    private String theme = "light"; // default theme
+    private Theme theme = Theme.LIGHT;
 
-    @Column(name = "notifications_enabled", nullable = false)
     @Builder.Default
+    @Column(name = "notifications_enabled", nullable = false)
     private boolean notificationsEnabled = true;
 
     @Column(name = "workout_reminder_time")
-    private java.time.LocalTime workoutReminderTime;
+    private LocalTime workoutReminderTime;
 }
