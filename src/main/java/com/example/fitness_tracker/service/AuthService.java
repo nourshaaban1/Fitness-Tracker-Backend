@@ -10,7 +10,11 @@ import com.example.fitness_tracker.security.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.Instant;
 import java.util.UUID;
 
@@ -41,12 +45,31 @@ public class AuthService {
             }
         }
 
+        MultipartFile profilePic = request.getProfilePic();
+        String profilePicPath = null;
+        if (profilePic != null && !profilePic.isEmpty()) {
+            try {
+                String fileName = UUID.randomUUID() + "_" + profilePic.getOriginalFilename();
+                
+                // Safe external folder
+                Path uploadPath = Paths.get(System.getProperty("user.dir"), "uploads/profile-pics");
+                Files.createDirectories(uploadPath);
+
+                Path filePath = uploadPath.resolve(fileName);
+                profilePic.transferTo(filePath.toFile());
+
+                profilePicPath = "/uploads/profile-pics/" + fileName; // save relative path in DB
+            } catch (Exception e) {
+                throw new RuntimeException("Failed to save profile picture: " + e.getMessage());
+            }
+        }
+
         User user = User.builder()
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())
                 .email(request.getEmail())
                 .passwordHash(passwordEncoder.encode(request.getPassword()))
-                .profilePic(request.getProfilePic())
+                .profilePic(profilePicPath)
                 .role(role)
                 .lastLogin(Instant.now())
                 .build();

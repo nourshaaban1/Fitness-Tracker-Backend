@@ -18,8 +18,8 @@ public class AuthController {
 
     private final AuthService authService;
 
-    @PostMapping("/signup")
-    public ResponseEntity<?> signup(@Valid @RequestBody SignupRequest request,
+    @PostMapping(value = "/signup", consumes = {"multipart/form-data"})
+    public ResponseEntity<?> signup(@Valid @ModelAttribute SignupRequest request,
                                     @RequestHeader(value = "Authorization", required = false) String authHeader) {
         try {
             LoginResponse response = authService.signup(request, authHeader);

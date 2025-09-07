@@ -1,5 +1,7 @@
 package com.example.fitness_tracker.domain.dto.Auth;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.example.fitness_tracker.domain.enums.Role;
 
 import jakarta.validation.constraints.Email;
@@ -25,7 +27,7 @@ public class SignupRequest {
     @NotBlank(message = "Password is required")
     private String password;
 
-    private String profilePic; // optional
+    private MultipartFile profilePic; // optional
 
     private Role role = Role.USER; // default role
 }
