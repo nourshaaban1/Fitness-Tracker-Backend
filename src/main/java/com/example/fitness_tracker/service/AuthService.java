@@ -12,6 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -21,6 +22,7 @@ public class AuthService {
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
 
+    // Signup
     public LoginResponse signup(SignupRequest request, String authHeader) {
         if (userRepository.existsByEmail(request.getEmail())) {
             throw new IllegalArgumentException("Email already exists!");
@@ -61,6 +63,7 @@ public class AuthService {
         return new LoginResponse(token); // directly return login response
     }
 
+    // Login
     public LoginResponse login(LoginRequest request) {
         User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new IllegalArgumentException("Invalid email or password"));
@@ -83,5 +86,21 @@ public class AuthService {
         );
 
         return new LoginResponse(token);
+    }
+
+    // Logout
+    public void logout(String authHeader) {
+        if (authHeader != null && authHeader.startsWith("Bearer ")) {
+            String token = authHeader.substring(7);
+            UUID userId = jwtService.extractUserId(token);
+
+            User user = userRepository.findById(userId)
+                    .orElseThrow(() -> new IllegalArgumentException("User not found"));
+
+            // increment token version -> all old tokens are invalidated
+            user.setTokenVersion(user.getTokenVersion() + 1);
+
+            userRepository.save(user);
+        }
     }
 }
