@@ -115,7 +115,10 @@ public class ProfileService {
                 updated.getFirstName(),
                 updated.getLastName(),
                 updated.getEmail(),
-                updated.getProfilePic()
+                updated.getProfilePic(),
+                updated.getPreferences().getTheme(),
+                updated.getPreferences().isNotificationsEnabled(),
+                updated.getPreferences().getWorkoutReminderTime()
         );
 
         return new UpdateProfileResponse(dto, newToken);
