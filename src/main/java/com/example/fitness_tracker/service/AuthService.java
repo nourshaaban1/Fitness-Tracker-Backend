@@ -1,5 +1,6 @@
 package com.example.fitness_tracker.service;
 
+import com.example.fitness_tracker.domain.dto.Auth.LoginRequest;
 import com.example.fitness_tracker.domain.dto.Auth.LoginResponse;
 import com.example.fitness_tracker.domain.dto.Auth.SignupRequest;
 import com.example.fitness_tracker.domain.enums.Role;
@@ -58,5 +59,29 @@ public class AuthService {
         );
 
         return new LoginResponse(token); // directly return login response
+    }
+
+    public LoginResponse login(LoginRequest request) {
+        User user = userRepository.findByEmail(request.getEmail())
+                .orElseThrow(() -> new IllegalArgumentException("Invalid email or password"));
+
+        if (!passwordEncoder.matches(request.getPassword(), user.getPasswordHash())) {
+            throw new IllegalArgumentException("Invalid email or password");
+        }
+
+        // update last login
+        user.setLastLogin(Instant.now());
+        user.setTokenVersion(user.getTokenVersion() + 1); // invalidate old tokens
+        
+        userRepository.save(user);
+
+        String token = jwtService.generateToken(
+                user.getId(),
+                user.getEmail(),
+                user.getRole().name(),
+                user.getTokenVersion()
+        );
+
+        return new LoginResponse(token);
     }
 }

@@ -1,6 +1,7 @@
 package com.example.fitness_tracker.controller;
 
 import com.example.fitness_tracker.domain.dto.Auth.SignupRequest;
+import com.example.fitness_tracker.domain.dto.Auth.LoginRequest;
 import com.example.fitness_tracker.domain.dto.Auth.LoginResponse;
 import com.example.fitness_tracker.domain.dto.common.ErrorResponse;
 import com.example.fitness_tracker.service.AuthService;
@@ -34,4 +35,19 @@ public class AuthController {
                     .body(new ErrorResponse("Server error", 500));
         }
     }
+
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@Valid @RequestBody LoginRequest request) {
+        try {
+            LoginResponse response = authService.login(request);
+            return ResponseEntity.ok(response);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(new ErrorResponse(e.getMessage(), 400));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new ErrorResponse("Server error", 500));
+        }
+    }
+
 }
