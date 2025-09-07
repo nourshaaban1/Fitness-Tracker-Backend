@@ -29,7 +29,7 @@ public class AuthService {
 
     // Signup
     public LoginResponse signup(SignupRequest request, String authHeader) {
-        if (userRepository.existsByEmail(request.getEmail())) {
+        if (userRepository.existsByEmailAndDeletedAtIsNull(request.getEmail())) {
             throw new IllegalArgumentException("Email already exists!");
         }
 
@@ -116,7 +116,7 @@ public class AuthService {
 
     // Login
     public LoginResponse login(LoginRequest request) {
-        User user = userRepository.findByEmail(request.getEmail())
+        User user = userRepository.findByEmailAndDeletedAtIsNull(request.getEmail())
                 .orElseThrow(() -> new IllegalArgumentException("Invalid email or password"));
 
         if (!passwordEncoder.matches(request.getPassword(), user.getPasswordHash())) {

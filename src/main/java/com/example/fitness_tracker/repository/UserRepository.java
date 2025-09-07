@@ -7,6 +7,8 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface UserRepository extends JpaRepository<User, UUID> {
-    Optional<User> findByEmail(String email);
-    boolean existsByEmail(String email);
+    Optional<User> findByEmailAndDeletedAtIsNull(String email);
+
+    // Check if a non-deleted email exists
+    boolean existsByEmailAndDeletedAtIsNull(String email);
 }

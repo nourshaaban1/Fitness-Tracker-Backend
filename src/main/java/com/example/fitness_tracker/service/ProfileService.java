@@ -25,6 +25,30 @@ public class ProfileService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
+    public UserDto getProfile(String authHeader) {
+        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+            throw new RuntimeException("Missing or invalid Authorization header");
+        }
+
+        String token = authHeader.substring(7);
+        UUID userId = jwtService.extractUserId(token);
+
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        // Map to DTO
+        UserPreferences prefs = user.getPreferences();
+        return new UserDto(
+                user.getFirstName(),
+                user.getLastName(),
+                user.getEmail(),
+                user.getProfilePic(),
+                prefs != null ? prefs.getTheme() : null,
+                prefs != null ? prefs.isNotificationsEnabled() : null,
+                prefs != null ? prefs.getWorkoutReminderTime() : null
+        );
+    }
+
     public UpdateProfileResponse updateProfile(String authHeader, UpdateProfileRequest request) throws Exception {
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             throw new RuntimeException("Missing or invalid Authorization header");
@@ -44,7 +68,7 @@ public class ProfileService {
         if (request.getLastName() != null && !request.getLastName().isBlank()) user.setLastName(request.getLastName());
 
         if (request.getEmail() != null && !request.getEmail().equals(user.getEmail())) {
-            if (userRepository.existsByEmail(request.getEmail())) {
+            if (userRepository.existsByEmailAndDeletedAtIsNull(request.getEmail())) {
                 throw new IllegalArgumentException("Email already exists!");
             }
             user.setEmail(request.getEmail());
@@ -123,4 +147,27 @@ public class ProfileService {
 
         return new UpdateProfileResponse(dto, newToken);
     }
+
+    public void deleteProfile(String authHeader) {
+    if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+        throw new RuntimeException("Missing or invalid Authorization header");
+    }
+
+    String token = authHeader.substring(7);
+    UUID userId = jwtService.extractUserId(token);
+
+    User user = userRepository.findById(userId)
+            .orElseThrow(() -> new RuntimeException("User not found"));
+
+    // Soft delete using your BaseEntityWithSoftDelete method
+    user.softDelete();
+
+    // Make email reusable
+    user.setEmail(user.getEmail() + "_deleted_" + System.currentTimeMillis());
+
+    // Invalidate all tokens immediately
+    user.setTokenVersion(user.getTokenVersion() + 1);
+
+    userRepository.save(user);
+}
 }
