@@ -2,6 +2,8 @@ package com.example.fitness_tracker.security;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import java.nio.charset.StandardCharsets;
 import java.security.Key;
@@ -11,11 +13,18 @@ import java.util.UUID;
 @Service
 public class JwtService {
 
-    private static final String SECRET = "my_super_long_secret_key_which_is_at_least_32_chars";
-    private static final long EXPIRATION = 1000 * 60 * 60 * 24; // 1 day
+    private final String secret;
+    private final long expiration;
 
+    public JwtService(
+            @Value("${jwt.secret}") String secret,
+            @Value("${jwt.expiration-ms}") long expiration) {
+        this.secret = secret;
+        this.expiration = expiration;
+    }
+    
     private Key getSigningKey() {
-        return Keys.hmacShaKeyFor(SECRET.getBytes(StandardCharsets.UTF_8));
+        return Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
     }
 
     // generae JWT token
@@ -26,7 +35,7 @@ public class JwtService {
                 .claim("role", role)
                 .claim("version", version) // add version claim
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION))
+                .setExpiration(new Date(System.currentTimeMillis() + expiration))
                 .signWith(getSigningKey(), SignatureAlgorithm.HS256)
                 .compact();
     }
