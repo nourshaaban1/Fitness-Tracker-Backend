@@ -2,24 +2,29 @@ package com.example.fitness_tracker.domain.dto.Exercise;
 
 import com.example.fitness_tracker.domain.enums.ExerciseCategory;
 import com.example.fitness_tracker.domain.enums.TrackingMode;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
-import java.util.List;
-import java.util.UUID;
 
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class ExerciseDto {
-    private UUID id;
+public class UpdateExerciseDto {
+    @Size(max = 150, message = "Exercise name cannot exceed 150 characters")
     private String name;
-    private ExerciseCategory category;
-    private String imageUrl;
+
+    @Size(max = 500, message = "Description cannot exceed 500 characters")
     private String description;
+
+    private ExerciseCategory category;
+
+    private String imageUrl;
+
     private TrackingMode trackingMode;
+
     private boolean hasWeights;
-    private UUID createdByUserId;
-//    private List<WorkoutExerciseDto> workoutExercises;
 }

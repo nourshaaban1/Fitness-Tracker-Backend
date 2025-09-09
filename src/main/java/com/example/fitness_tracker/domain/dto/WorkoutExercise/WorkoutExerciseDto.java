@@ -1,5 +1,4 @@
 package com.example.fitness_tracker.domain.dto.WorkoutExercise;
-
 import lombok.*;
 
 import java.util.UUID;
