@@ -1,15 +1,8 @@
 package com.example.fitness_tracker.mappers;
 
-
-import com.example.fitness_tracker.domain.dto.Exercise.CreateExerciseDto;
 import com.example.fitness_tracker.domain.dto.Exercise.ExerciseDto;
 import com.example.fitness_tracker.domain.dto.Exercise.UpdateExerciseDto;
-import com.example.fitness_tracker.domain.dto.Nutrition.UpdateNutritionDto;
 import com.example.fitness_tracker.domain.models.Exercise;
-import com.example.fitness_tracker.domain.models.Nutrition;
-import com.example.fitness_tracker.domain.models.User;
-
-import java.util.stream.Collectors;
 
 public class ExerciseMapper {
 

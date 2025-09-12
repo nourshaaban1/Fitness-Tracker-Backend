@@ -8,9 +8,8 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class WorkoutExerciseDto {
-    private UUID id;
-    private UUID exerciseId;
+public class CreateWorkoutExerciseDto {
+    private String exerciseName;
     private Integer sets;
     private Integer reps;
     private Integer duration;

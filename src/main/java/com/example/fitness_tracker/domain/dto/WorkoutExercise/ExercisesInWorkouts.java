@@ -1,16 +1,13 @@
 package com.example.fitness_tracker.domain.dto.WorkoutExercise;
 import lombok.*;
 
-import java.util.UUID;
-
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class WorkoutExerciseDto {
-    private UUID id;
-    private UUID exerciseId;
+public class ExercisesInWorkouts {
+    private String exerciseName;
     private Integer sets;
     private Integer reps;
     private Integer duration;

@@ -9,10 +9,14 @@ import com.example.fitness_tracker.repository.NutritionRepository;
 import com.example.fitness_tracker.util.EntityNotFoundException;
 import com.example.fitness_tracker.util.InvalidEntityDataException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Stream;
+
 @Service
 @RequiredArgsConstructor
 public class NutritionService {
@@ -29,6 +33,48 @@ public class NutritionService {
                 .orElseThrow(() -> new EntityNotFoundException("Nutrition", id));
         return mapper.toDto(n);
     }
+
+    public List<NutritionDto> getFilteredAndSortedNutritions(String name,
+                                                             Integer minCalories,
+                                                             Integer maxCalories,
+                                                             Sort sort) {
+
+        Stream<Nutrition> stream = nutritionRepository.findAllByDeletedAtIsNull().stream();
+
+        // ✅ Filtering
+        if (name != null && !name.isBlank()) {
+            stream = stream.filter(n -> n.getName().toLowerCase().contains(name.toLowerCase()));
+        }
+        if (minCalories != null) {
+            stream = stream.filter(n -> n.getCaloriesPer100g() >= minCalories);
+        }
+        if (maxCalories != null) {
+            stream = stream.filter(n -> n.getCaloriesPer100g() <= maxCalories);
+        }
+
+        List<Nutrition> list = stream.toList();
+
+        // ✅ Sorting
+        if (sort.isSorted()) {
+            Comparator<Nutrition> comparator = sort.stream()
+                    .map(order -> {
+                        Comparator<Nutrition> c = switch (order.getProperty()) {
+                            case "name"      -> Comparator.comparing(Nutrition::getName, String.CASE_INSENSITIVE_ORDER);
+                            case "caloriesPer100g" -> Comparator.comparing(Nutrition::getCaloriesPer100g);
+                            case "proteinPer100g"  -> Comparator.comparing(Nutrition::getProteinPer100g);
+                            default          -> Comparator.comparing(Nutrition::getId);
+                        };
+                        return order.isAscending() ? c : c.reversed();
+                    })
+                    .reduce(Comparator::thenComparing)
+                    .orElse((a, b) -> 0);
+
+            list = list.stream().sorted(comparator).toList();
+        }
+
+        return mapper.toDtoList(list);
+    }
+
 
     public NutritionDto create(CreateNutritionDto dto) {
         if (dto == null) {
@@ -74,4 +120,7 @@ public class NutritionService {
         existing.restore();
         nutritionRepository.save(existing);
     }
+
+
+
 }

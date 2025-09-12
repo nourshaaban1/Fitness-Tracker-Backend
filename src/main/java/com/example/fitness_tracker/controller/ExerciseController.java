@@ -6,6 +6,7 @@ import com.example.fitness_tracker.domain.dto.Exercise.UpdateExerciseDto;
 import com.example.fitness_tracker.domain.dto.common.ErrorResponse;
 import com.example.fitness_tracker.service.ExerciseService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -26,8 +27,28 @@ public class ExerciseController {
     private final ExerciseService exerciseService;
 
     @GetMapping
-    public ResponseEntity<List<ExerciseDto>> getAll() {
-        return ResponseEntity.ok(exerciseService.getAll());
+    public ResponseEntity<List<ExerciseDto>> getExercises(
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false, name = "category") String category,
+            @RequestParam(required = false, name = "sort_by") String sortBy,
+            @RequestParam(required = false, defaultValue = "asc") String direction
+    ) {
+        boolean hasFilter = (name != null && !name.isBlank()) || (category != null && !category.isBlank()) || sortBy != null;
+
+        if (!hasFilter) {
+            return ResponseEntity.ok(exerciseService.getAll());
+        }
+
+        Sort sort = Sort.unsorted();
+        if (sortBy != null) {
+            sort = direction.equalsIgnoreCase("desc")
+                    ? Sort.by(sortBy).descending()
+                    : Sort.by(sortBy).ascending();
+        }
+
+        return ResponseEntity.ok(
+                exerciseService.getFilteredAndSortedExercises(name, category, sort)
+        );
     }
 
     @GetMapping("/{id}")
