@@ -43,12 +43,15 @@ public class User extends BaseEntityWithSoftDelete {
     private String profilePic;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
     private List<Post> posts = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
     private List<Comment> comments = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
     private List<Like> likes = new ArrayList<>();
 
     @Builder.Default
