@@ -1,0 +1,1005 @@
+{
+	"info": {
+		"_postman_id": "bb72e899-5af0-433d-ab0b-798257297bf7",
+		"name": "Fitness Tracker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40414565"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Signup",
+					"item": [
+						{
+							"name": "Requests",
+							"item": [
+								{
+									"name": "Signup Admin",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "firstName",
+													"value": "user",
+													"type": "text"
+												},
+												{
+													"key": "lastName",
+													"value": "test2",
+													"type": "text"
+												},
+												{
+													"key": "email",
+													"value": "test2@example.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "123456",
+													"type": "text"
+												},
+												{
+													"key": "profilePic",
+													"type": "file",
+													"src": []
+												},
+												{
+													"key": "role",
+													"value": "ADMIN",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:8080/auth/signup",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"auth",
+												"signup"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Signup User",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "firstName",
+													"value": "user",
+													"type": "text"
+												},
+												{
+													"key": "lastName",
+													"value": "test1",
+													"type": "text"
+												},
+												{
+													"key": "email",
+													"value": "test1@example.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "123456",
+													"type": "text"
+												},
+												{
+													"key": "profilePic",
+													"type": "file",
+													"src": []
+												},
+												{
+													"key": "role",
+													"value": "USER",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:8080/auth/signup",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"auth",
+												"signup"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Tests",
+							"item": [
+								{
+									"name": "Signup User No Name Test",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "firstName",
+													"value": "user",
+													"type": "text"
+												},
+												{
+													"key": "lastName",
+													"value": "test1",
+													"type": "text"
+												},
+												{
+													"key": "email",
+													"value": "test1@example.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "123456",
+													"type": "text"
+												},
+												{
+													"key": "profilePic",
+													"type": "file",
+													"src": []
+												},
+												{
+													"key": "role",
+													"value": "USER",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:8080/auth/signup",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"auth",
+												"signup"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Signup User No Name Test2",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "firstName",
+													"value": "user",
+													"type": "text"
+												},
+												{
+													"key": "lastName",
+													"value": "test1",
+													"type": "text"
+												},
+												{
+													"key": "email",
+													"value": "test1@example.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "123456",
+													"type": "text"
+												},
+												{
+													"key": "profilePic",
+													"type": "file",
+													"src": []
+												},
+												{
+													"key": "role",
+													"value": "USER",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:8080/auth/signup",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"auth",
+												"signup"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Signup User Invalid Email",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "firstName",
+													"value": "user",
+													"type": "text"
+												},
+												{
+													"key": "lastName",
+													"value": "test1",
+													"type": "text"
+												},
+												{
+													"key": "email",
+													"value": "test1@example.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "123456",
+													"type": "text"
+												},
+												{
+													"key": "profilePic",
+													"type": "file",
+													"src": []
+												},
+												{
+													"key": "role",
+													"value": "USER",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:8080/auth/signup",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"auth",
+												"signup"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Signup User Invalid Password",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "firstName",
+													"value": "user",
+													"type": "text"
+												},
+												{
+													"key": "lastName",
+													"value": "test1",
+													"type": "text"
+												},
+												{
+													"key": "email",
+													"value": "test1@example.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "123456",
+													"type": "text"
+												},
+												{
+													"key": "profilePic",
+													"type": "file",
+													"src": []
+												},
+												{
+													"key": "role",
+													"value": "USER",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:8080/auth/signup",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"auth",
+												"signup"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Signup User Email Existing",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "firstName",
+													"value": "user",
+													"type": "text"
+												},
+												{
+													"key": "lastName",
+													"value": "test1",
+													"type": "text"
+												},
+												{
+													"key": "email",
+													"value": "test1@example.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "123456",
+													"type": "text"
+												},
+												{
+													"key": "profilePic",
+													"type": "file",
+													"src": []
+												},
+												{
+													"key": "role",
+													"value": "USER",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:8080/auth/signup",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"auth",
+												"signup"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Signup User Invalid Profile Pic File",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "firstName",
+													"value": "user",
+													"type": "text"
+												},
+												{
+													"key": "lastName",
+													"value": "test1",
+													"type": "text"
+												},
+												{
+													"key": "email",
+													"value": "test1@example.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "123456",
+													"type": "text"
+												},
+												{
+													"key": "profilePic",
+													"type": "file",
+													"src": []
+												},
+												{
+													"key": "role",
+													"value": "USER",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:8080/auth/signup",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"auth",
+												"signup"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"item": [
+						{
+							"name": "Requests",
+							"item": [
+								{
+									"name": "Login User",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"test1@example.com\",\r\n    \"password\": \"123456\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/auth/login",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Login Admin",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"test2@example.com\",\r\n    \"password\": \"123456\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/auth/login",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Tests",
+							"item": [
+								{
+									"name": "Login User wrong email",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"test1@example.com\",\r\n    \"password\": \"123456\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/auth/login",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Login User wrong password",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"test1@example.com\",\r\n    \"password\": \"123456\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/auth/login",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"item": [
+						{
+							"name": "Requests",
+							"item": [
+								{
+									"name": "Logout",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/auth/logout",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"auth",
+												"logout"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Tests",
+							"item": [
+								{
+									"name": "Logout Check Token",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/auth/logout",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"auth",
+												"logout"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "Get Profile User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Profile Admin",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "userId",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Profiles Admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/profile/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"profile",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Profile User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "firstName",
+									"value": "user",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "test1",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "test1@example.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "profilePic",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "theme",
+									"value": " DARK",
+									"type": "text"
+								},
+								{
+									"key": "notificationsEnabled",
+									"value": "True",
+									"type": "text"
+								},
+								{
+									"key": "workoutReminderTime",
+									"value": "07:30",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/profile/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"profile",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Profile Admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "firstName",
+									"value": "user",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "test1",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "test1@example.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "profilePic",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "theme",
+									"value": " DARK",
+									"type": "text"
+								},
+								{
+									"key": "notificationsEnabled",
+									"value": "True",
+									"type": "text"
+								},
+								{
+									"key": "workoutReminderTime",
+									"value": "07:30",
+									"type": "text"
+								},
+								{
+									"key": "userId",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/profile/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"profile",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Profile User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Profile Admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "userId",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
