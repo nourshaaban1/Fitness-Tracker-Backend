@@ -2,10 +2,14 @@ package com.example.fitness_tracker.service;
 
 import com.example.fitness_tracker.domain.dto.Auth.LoginRequest;
 import com.example.fitness_tracker.domain.dto.Auth.LoginResponse;
+import com.example.fitness_tracker.domain.dto.Auth.OtpRequest;
+import com.example.fitness_tracker.domain.dto.Auth.ResetPasswordRequest;
 import com.example.fitness_tracker.domain.dto.Auth.SignupRequest;
 import com.example.fitness_tracker.domain.enums.Role;
+import com.example.fitness_tracker.domain.models.Otp;
 import com.example.fitness_tracker.domain.models.User;
 import com.example.fitness_tracker.domain.models.UserPreferences;
+import com.example.fitness_tracker.repository.OtpRepository;
 import com.example.fitness_tracker.repository.UserRepository;
 import com.example.fitness_tracker.security.JwtService;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +21,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.util.Random;
 import java.util.UUID;
 
 @Service
@@ -24,7 +30,9 @@ import java.util.UUID;
 public class AuthService {
 
     private final UserRepository userRepository;
+    private final OtpRepository otpRepository;
     private final PasswordEncoder passwordEncoder;
+    private final EmailService emailService;
     private final JwtService jwtService;
 
     // Signup
@@ -137,6 +145,62 @@ public class AuthService {
         );
 
         return new LoginResponse(token);
+    }
+
+    public void otpRequest(OtpRequest request) {
+        String email = request.getEmail();
+
+        userRepository.findByEmailAndDeletedAtIsNull(email)
+                .orElseThrow(() -> new RuntimeException("No account found with this email"));
+
+        // generate 6-digit OTP
+        String otp = String.format("%06d", new Random().nextInt(999999));
+
+        Otp token = otpRepository.findByEmail(email).orElse(null);
+
+        if (token != null) {
+            token.setOtp(otp);
+            token.setExpiry(LocalDateTime.now().plusMinutes(5));
+            token.setUsed(false);
+        } else {
+            token = Otp.builder()
+                    .email(email)
+                    .otp(otp)
+                    .expiry(LocalDateTime.now().plusMinutes(5))
+                    .used(false)
+                    .build();
+        }
+
+        otpRepository.save(token);
+
+        // Send OTP via email
+        // emailService.sendOtp(email, otp);
+        System.out.println("OTP for " + email + ": " + otp); // for testing
+    }
+
+    public void resetPassword(ResetPasswordRequest request) {
+        String email = request.getEmail();
+        String otp = request.getOtp();
+
+        Otp token = otpRepository.findByEmailAndOtp(email, otp)
+                .orElseThrow(() -> new RuntimeException("Invalid OTP"));
+
+        if (token.isUsed()) {
+            throw new RuntimeException("OTP already used");
+        }
+
+        if (token.getExpiry().isBefore(LocalDateTime.now())) {
+            throw new RuntimeException("OTP expired");
+        }
+
+        token.setUsed(true);
+        otpRepository.save(token);
+
+        User user = userRepository.findByEmailAndDeletedAtIsNull(email)
+                .orElseThrow(() -> new RuntimeException("Account not found for email: " + email));
+
+        user.setPasswordHash(passwordEncoder.encode(request.getNewPassword()));
+        userRepository.save(user);
     }
 
     // Logout
