@@ -1,6 +1,8 @@
 HELP.md
 .env
 target/
+### Directory for file uploads ###
+uploads/
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
