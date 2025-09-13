@@ -4,6 +4,7 @@ import com.example.fitness_tracker.domain.dto.Exercise.UpdateExerciseDto;
 import com.example.fitness_tracker.repository.UserRepository;
 import com.example.fitness_tracker.util.InvalidEntityDataException;
 import jakarta.persistence.criteria.Predicate;
+import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -28,6 +29,7 @@ public class ExerciseService {
     private final ExerciseRepository exerciseRepository;
     private final UserRepository userRepository;
 
+    @Transactional
     public ExerciseDto create(CreateExerciseDto dto) {
         UUID userId = (UUID) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
@@ -51,8 +53,6 @@ public class ExerciseService {
                 .map(ExerciseMapper::toDto)
                 .orElseThrow(() -> new EntityNotFoundException("Exercise", id));
     }
-
-
     public List<ExerciseDto> getAll() {
         return exerciseRepository.findAllByDeletedAtIsNull()
                 .stream()
@@ -94,7 +94,7 @@ public class ExerciseService {
     }
 
 
-
+    @Transactional
     public ExerciseDto update(UUID id, UpdateExerciseDto dto) {
         Exercise existing = exerciseRepository.findByIdAndDeletedAtIsNull(id)
                 .orElseThrow(() -> new EntityNotFoundException("Exercise", id));
@@ -106,6 +106,7 @@ public class ExerciseService {
         return ExerciseMapper.toDto(exerciseRepository.save(existing));
     }
 
+    @Transactional
     public void delete(UUID id) {
         Exercise existing = exerciseRepository.findByIdAndDeletedAtIsNull(id)
                 .orElseThrow(() -> new EntityNotFoundException("Exercise", id));
@@ -113,6 +114,7 @@ public class ExerciseService {
         exerciseRepository.save(existing);
     }
 
+    @Transactional
     public void restore(UUID id) {
         Exercise existing = exerciseRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Exercise", id));

@@ -4,13 +4,16 @@ import com.example.fitness_tracker.domain.dto.Workout.CreateWorkoutDto;
 import com.example.fitness_tracker.domain.dto.Workout.UpdateWorkoutDto;
 import com.example.fitness_tracker.domain.dto.Workout.WorkoutDto;
 import com.example.fitness_tracker.domain.dto.WorkoutExercise.CreateWorkoutExerciseDto;
+import com.example.fitness_tracker.domain.dto.WorkoutExercise.WorkoutExerciseDto;
 import com.example.fitness_tracker.domain.models.Exercise;
 import com.example.fitness_tracker.domain.models.User;
 import com.example.fitness_tracker.domain.models.Workout;
 import com.example.fitness_tracker.domain.models.WorkoutExercise;
+import com.example.fitness_tracker.mappers.WorkoutExerciseMapper;
 import com.example.fitness_tracker.mappers.WorkoutMapper;
 import com.example.fitness_tracker.repository.ExerciseRepository;
 import com.example.fitness_tracker.repository.UserRepository;
+import com.example.fitness_tracker.repository.WorkoutExerciseRepository;
 import com.example.fitness_tracker.repository.WorkoutRepository;
 import com.example.fitness_tracker.util.EntityNotFoundException;
 import com.example.fitness_tracker.util.InvalidEntityDataException;
@@ -23,6 +26,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 @Service
@@ -32,8 +36,9 @@ public class WorkoutService {
     private final WorkoutRepository workoutRepository;
     private final UserRepository userRepository;
     private final ExerciseRepository exerciseRepository;
-    private final WorkoutMapper mapper;
-
+    private final WorkoutExerciseRepository workoutExerciseRepository;
+    private final WorkoutMapper workoutMapper;
+    private final WorkoutExerciseMapper wmMapper;
     /**
      * Retrieve all workouts that are not soft-deleted.
      *
@@ -41,7 +46,7 @@ public class WorkoutService {
      */
     public List<WorkoutDto> getAll() {
         return workoutRepository.findAllByDeletedAtIsNull().stream()
-                .map(mapper::toDto)
+                .map(workoutMapper::toDto)
                 .collect(Collectors.toList());
     }
 
@@ -55,7 +60,7 @@ public class WorkoutService {
     public WorkoutDto getById(UUID id) {
         Workout w = workoutRepository.findByIdAndDeletedAtIsNull(id)
                 .orElseThrow(() -> new EntityNotFoundException("Workout", id));
-        return mapper.toDto(w);
+        return workoutMapper.toDto(w);
     }
 
     /**
@@ -85,7 +90,7 @@ public class WorkoutService {
         };
 
         return workoutRepository.findAll(spec, sort).stream()
-                .map(mapper::toDto)
+                .map(workoutMapper::toDto)
                 .toList();
     }
 
@@ -124,7 +129,7 @@ public class WorkoutService {
             workout.setWorkoutExercises(exerciseLinks);
         }
 
-        return mapper.toDto(workoutRepository.save(workout));
+        return workoutMapper.toDto(workoutRepository.save(workout));
     }
 
     /**
@@ -164,7 +169,7 @@ public class WorkoutService {
             }
         }
 
-        return mapper.toDto(workoutRepository.save(existing));
+        return workoutMapper.toDto(workoutRepository.save(existing));
     }
 
     /**
@@ -181,13 +186,25 @@ public class WorkoutService {
         Workout existing = workoutRepository.findByIdAndDeletedAtIsNull(workoutId)
                 .orElseThrow(() -> new EntityNotFoundException("Workout", workoutId));
 
-        if (exercises != null) {
+        if (exercises != null && !exercises.isEmpty()) {
+
+            // Find the current max order to start incrementing from it
+            int currentMaxOrder = existing.getWorkoutExercises().stream()
+                    .mapToInt(WorkoutExercise::getOrderInWorkout)
+                    .max()
+                    .orElse(0); // if no exercises, start at 0
+
+            AtomicInteger nextOrder = new AtomicInteger(currentMaxOrder);
+
             List<WorkoutExercise> newLinks = exercises.stream()
-                    .map(exDto -> buildWorkoutExercise(existing, exDto))
+                    .map(exDto -> buildWorkoutExercise(existing, exDto, nextOrder.incrementAndGet()))
                     .toList();
+
+
             existing.getWorkoutExercises().addAll(newLinks);
         }
-        return mapper.toDto(workoutRepository.save(existing));
+
+        return workoutMapper.toDto(workoutRepository.save(existing));
     }
 
     /**
@@ -222,7 +239,6 @@ public class WorkoutService {
 
 
     // Helper methods for update and create //
-
     /**
      * Helper method to construct a {@link WorkoutExercise} entity from its DTO.
      *
@@ -231,7 +247,9 @@ public class WorkoutService {
      * @return A populated {@link WorkoutExercise}.
      * @throws EntityNotFoundException if the exercise name is not found.
      */
-    private WorkoutExercise buildWorkoutExercise(Workout workout, CreateWorkoutExerciseDto dto) {
+    private WorkoutExercise buildWorkoutExercise(Workout workout,
+                                                 CreateWorkoutExerciseDto dto,
+                                                 int order) {
         Exercise exercise = exerciseRepository.findByNameAndDeletedAtIsNull(dto.getExerciseName())
                 .orElseThrow(() -> new EntityNotFoundException("Exercise", dto.getExerciseName()));
 
@@ -242,10 +260,19 @@ public class WorkoutService {
                 .reps(dto.getReps())
                 .duration(dto.getDuration())
                 .calories(dto.getCalories())
-                .orderInWorkout(dto.getOrderInWorkout())
+                .orderInWorkout(order)
                 .notes(dto.getNotes())
                 .build();
     }
+
+    private WorkoutExercise buildWorkoutExercise(Workout workout, CreateWorkoutExerciseDto dto) {
+        return buildWorkoutExercise(
+                workout,
+                dto,
+                dto.getOrderInWorkout() != null ? dto.getOrderInWorkout() : 0
+        );
+    }
+
 
     /**
      * Helper method to update fields of an existing {@link WorkoutExercise}.
@@ -262,4 +289,68 @@ public class WorkoutService {
         if (dto.getOrderInWorkout() != null) we.setOrderInWorkout(dto.getOrderInWorkout());
         // Exercise name update is not allowed directly to preserve references
     }
+
+    // WorkoutExercises Methods //
+
+    /**
+     * Retrieve all exercises of a given workout.
+     *
+     * @param workoutId UUID of the workout.
+     * @return List of WorkoutExerciseDto.
+     * @throws EntityNotFoundException if the workout does not exist.
+     */
+    public List<WorkoutExerciseDto> getWorkoutExercises(UUID workoutId) {
+        Workout workout = workoutRepository.findByIdAndDeletedAtIsNull(workoutId)
+                .orElseThrow(() -> new EntityNotFoundException("Workout", workoutId));
+
+        return workout.getWorkoutExercises().stream()
+                .map(wmMapper::toWorkoutExerciseDto)
+                .sorted(Comparator.comparingInt(WorkoutExerciseDto::getOrderInWorkout))
+                .toList();
+    }
+
+    /**
+     * Retrieve a specific exercise inside a workout.
+     *
+     * @param workoutExerciseId UUID of the WorkoutExercise.
+     * @return WorkoutExerciseDto.
+     * @throws EntityNotFoundException if not found.
+     */
+    public WorkoutExerciseDto getWorkoutExercise(UUID workoutExerciseId) {
+        WorkoutExercise we = workoutExerciseRepository.findByIdAndWorkoutDeletedAtIsNull(workoutExerciseId)
+                .orElseThrow(() -> new EntityNotFoundException("WorkoutExercise", workoutExerciseId));
+        return wmMapper.toWorkoutExerciseDto(we);
+    }
+
+    /**
+     * Update a single WorkoutExercise.
+     *
+     * @param workoutExerciseId UUID of the WorkoutExercise.
+     * @param dto DTO containing updated fields.
+     * @return Updated WorkoutExerciseDto.
+     * @throws EntityNotFoundException if not found.
+     */
+    @Transactional
+    public WorkoutExerciseDto updateWorkoutExercise(UUID workoutExerciseId, CreateWorkoutExerciseDto dto) {
+        WorkoutExercise existing = workoutExerciseRepository.findByIdAndWorkoutDeletedAtIsNull(workoutExerciseId)
+                .orElseThrow(() -> new EntityNotFoundException("WorkoutExercise", workoutExerciseId));
+
+        updateWorkoutExerciseFields(existing, dto);
+        return wmMapper.toWorkoutExerciseDto(workoutExerciseRepository.save(existing));
+    }
+
+    /**
+     * Delete a WorkoutExercise (hard delete from DB).
+     * If you prefer soft-delete, add a deletedAt column and set it instead.
+     *
+     * @param workoutExerciseId UUID of the WorkoutExercise.
+     * @throws EntityNotFoundException if not found.
+     */
+    @Transactional
+    public void deleteWorkoutExercise(UUID workoutExerciseId) {
+        WorkoutExercise existing = workoutExerciseRepository.findByIdAndWorkoutDeletedAtIsNull(workoutExerciseId)
+                .orElseThrow(() -> new EntityNotFoundException("WorkoutExercise", workoutExerciseId));
+        workoutExerciseRepository.delete(existing);
+    }
+
 }
