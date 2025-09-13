@@ -3,6 +3,8 @@ package com.example.fitness_tracker.controller;
 import com.example.fitness_tracker.domain.dto.Auth.SignupRequest;
 import com.example.fitness_tracker.domain.dto.Auth.LoginRequest;
 import com.example.fitness_tracker.domain.dto.Auth.LoginResponse;
+import com.example.fitness_tracker.domain.dto.Auth.OtpRequest;
+import com.example.fitness_tracker.domain.dto.Auth.ResetPasswordRequest;
 import com.example.fitness_tracker.domain.dto.common.ErrorResponse;
 import com.example.fitness_tracker.service.AuthService;
 import jakarta.validation.Valid;
@@ -47,6 +49,28 @@ public class AuthController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(new ErrorResponse("Server error", 500));
+        }
+    }
+
+    @PostMapping("/otp-request")
+    public ResponseEntity<?> requestReset(@RequestBody OtpRequest request) {
+        try {
+            authService.otpRequest(request);
+            return ResponseEntity.ok("OTP sent to email: " + request.getEmail());
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(new ErrorResponse(e.getMessage(), 400));
+        }
+    }
+
+    @PostMapping("/reset-password")
+    public ResponseEntity<?> resetPassword(@RequestBody ResetPasswordRequest request) {
+        try {
+            authService.resetPassword(request);
+            return ResponseEntity.ok("Password reset successfully");
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(new ErrorResponse(e.getMessage(), 400));
         }
     }
 
