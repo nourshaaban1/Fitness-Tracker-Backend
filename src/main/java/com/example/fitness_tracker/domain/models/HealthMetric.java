@@ -1,8 +1,12 @@
 package com.example.fitness_tracker.domain.models;
 
+import com.example.fitness_tracker.domain.dto.HealthMetric.BodyMeasurementsDto;
 import com.example.fitness_tracker.domain.models.auditable.BaseEntityWithSoftDelete;
 import jakarta.persistence.*;
 import lombok.*;
+
+import com.vladmihalcea.hibernate.type.json.JsonType;
+import org.hibernate.annotations.Type;
 
 import java.time.LocalDate;
 
@@ -33,8 +37,9 @@ public class HealthMetric extends BaseEntityWithSoftDelete {
     @Column(nullable = false)
     private float bmi;
 
-    @Column(name = "body_measurements", columnDefinition = "json")
-    private String bodyMeasurements; // JSON string (e.g., {"waist": 80, "chest": 100})
+    @Column(name = "body_measurements", columnDefinition = "jsonb")
+    @Type(JsonType.class)
+    private BodyMeasurementsDto bodyMeasurements;
 
     @Column(name = "metric_date", nullable = false)
     private LocalDate date;
