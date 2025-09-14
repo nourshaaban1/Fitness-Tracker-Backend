@@ -1,4 +1,5 @@
 package com.example.fitness_tracker.domain.dto.WorkoutExercise;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import java.util.UUID;
@@ -9,8 +10,10 @@ import java.util.UUID;
 @AllArgsConstructor
 @Builder
 public class WorkoutExerciseDto {
+//    @JsonIgnore
     private UUID id;
-    private UUID exerciseId;
+    private String exerciseName;
+    private String workoutName;
     private Integer sets;
     private Integer reps;
     private Integer duration;
