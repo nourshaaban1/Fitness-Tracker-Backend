@@ -4,7 +4,6 @@ import com.example.fitness_tracker.domain.dto.WorkoutExercise.CreateWorkoutExerc
 import com.example.fitness_tracker.domain.dto.WorkoutExercise.WorkoutExerciseDto;
 import com.example.fitness_tracker.service.WorkoutService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
