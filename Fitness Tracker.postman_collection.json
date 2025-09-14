@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "",
+		"_postman_id": "9bd91851-8a9f-485e-bd24-6890b156f5d7",
 		"name": "Fitness Tracker",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": ""
+		"_exporter_id": "37287122",
+		"_collection_link": "https://www.postman.com/nour-shaban/workspace/spring-boot/collection/37287122-9bd91851-8a9f-485e-bd24-6890b156f5d7?action=share&source=collection_link&creator=37287122"
 	},
 	"item": [
 		{
@@ -1171,7 +1172,14 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": ""
+									"raw": "{{URL}}/api/offline-entries",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"offline-entries"
+									]
 								}
 							},
 							"response": []
@@ -1184,7 +1192,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJycm1AZXhhbXBsZS5jb20iLCJ1c2VySWQiOiI1ZDNmZDc3NC1iNWI1LTQ2M2ItOGQyYS05YTdiNzcwNGI4Y2MiLCJyb2xlIjoiVVNFUiIsInZlcnNpb24iOjIsImlhdCI6MTc1NzI5MzgxNSwiZXhwIjoxNzU3MzgwMjE1fQ.OreqeujNyyqIjmSBLfFY-at2NN_fWyUWHSFCzqmDrOU",
+											"value": "{{vault:authorization-secret}}",
 											"type": "string"
 										}
 									]
@@ -1201,12 +1209,10 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8080/api/offline-entries",
-									"protocol": "http",
+									"raw": "{{URL}}/api/offline-entries",
 									"host": [
-										"localhost"
+										"{{URL}}"
 									],
-									"port": "8080",
 									"path": [
 										"api",
 										"offline-entries"
@@ -1223,7 +1229,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJycm1AZXhhbXBsZS5jb20iLCJ1c2VySWQiOiI1ZDNmZDc3NC1iNWI1LTQ2M2ItOGQyYS05YTdiNzcwNGI4Y2MiLCJyb2xlIjoiVVNFUiIsInZlcnNpb24iOjIsImlhdCI6MTc1NzI5MzgxNSwiZXhwIjoxNzU3MzgwMjE1fQ.OreqeujNyyqIjmSBLfFY-at2NN_fWyUWHSFCzqmDrOU",
+											"value": "{{vault:authorization-secret}}",
 											"type": "string"
 										}
 									]
@@ -1240,12 +1246,10 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8080/api/offline-entries/d8e9eeb7-206d-4395-9072-633178aa2dda",
-									"protocol": "http",
+									"raw": "{{URL}}/api/offline-entries/d8e9eeb7-206d-4395-9072-633178aa2dda",
 									"host": [
-										"localhost"
+										"{{URL}}"
 									],
-									"port": "8080",
 									"path": [
 										"api",
 										"offline-entries",
@@ -1263,7 +1267,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJycm1AZXhhbXBsZS5jb20iLCJ1c2VySWQiOiI1ZDNmZDc3NC1iNWI1LTQ2M2ItOGQyYS05YTdiNzcwNGI4Y2MiLCJyb2xlIjoiVVNFUiIsInZlcnNpb24iOjIsImlhdCI6MTc1NzI5MzgxNSwiZXhwIjoxNzU3MzgwMjE1fQ.OreqeujNyyqIjmSBLfFY-at2NN_fWyUWHSFCzqmDrOU",
+											"value": "{{vault:authorization-secret}}",
 											"type": "string"
 										}
 									]
@@ -1275,12 +1279,10 @@
 									"raw": "{\r\n  \"dataType\": \"nutrition\",\r\n  \"dataContent\": \"Protein shake\",\r\n  \"syncStatus\": \"SYNCED\"\r\n}\r\n"
 								},
 								"url": {
-									"raw": "http://localhost:8080/api/offline-entries/d8e9eeb7-206d-4395-9072-633178aa2dda",
-									"protocol": "http",
+									"raw": "{{URL}}/api/offline-entries/d8e9eeb7-206d-4395-9072-633178aa2dda",
 									"host": [
-										"localhost"
+										"{{URL}}"
 									],
-									"port": "8080",
 									"path": [
 										"api",
 										"offline-entries",
@@ -1403,7 +1405,7 @@
 											"bearer": [
 												{
 													"key": "token",
-													"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJycm1AZXhhbXBsZS5jb20iLCJ1c2VySWQiOiI1ZDNmZDc3NC1iNWI1LTQ2M2ItOGQyYS05YTdiNzcwNGI4Y2MiLCJyb2xlIjoiVVNFUiIsInZlcnNpb24iOjUsImlhdCI6MTc1Nzc4MTQ1NywiZXhwIjoxNzU3ODY3ODU3fQ.IqQIweUnsEAn1vhsonjj2GsNzPX1t0nhhKQdx5wG1nI",
+													"value": "{{vault:authorization-secret}}",
 													"type": "string"
 												}
 											]
@@ -1415,14 +1417,11 @@
 											"raw": ""
 										},
 										"url": {
-											"raw": "http://localhost:8080/api/posts/c4458113-42b6-4f17-85cb-71cb9862a33f/likes",
-											"protocol": "http",
+											"raw": "{{token}}/posts/c4458113-42b6-4f17-85cb-71cb9862a33f/likes",
 											"host": [
-												"localhost"
+												"{{token}}"
 											],
-											"port": "8080",
 											"path": [
-												"api",
 												"posts",
 												"c4458113-42b6-4f17-85cb-71cb9862a33f",
 												"likes"
@@ -1439,7 +1438,7 @@
 											"bearer": [
 												{
 													"key": "token",
-													"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJycm1AZXhhbXBsZS5jb20iLCJ1c2VySWQiOiI1ZDNmZDc3NC1iNWI1LTQ2M2ItOGQyYS05YTdiNzcwNGI4Y2MiLCJyb2xlIjoiVVNFUiIsInZlcnNpb24iOjUsImlhdCI6MTc1Nzc4MTQ1NywiZXhwIjoxNzU3ODY3ODU3fQ.IqQIweUnsEAn1vhsonjj2GsNzPX1t0nhhKQdx5wG1nI",
+													"value": "{{vault:authorization-secret}}",
 													"type": "string"
 												}
 											]
@@ -1447,12 +1446,10 @@
 										"method": "DELETE",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:8080/api/posts/c4458113-42b6-4f17-85cb-71cb9862a33f/likes",
-											"protocol": "http",
+											"raw": "{{URL}}/api/posts/c4458113-42b6-4f17-85cb-71cb9862a33f/likes",
 											"host": [
-												"localhost"
+												"{{URL}}"
 											],
-											"port": "8080",
 											"path": [
 												"api",
 												"posts",
@@ -1476,7 +1473,7 @@
 											"bearer": [
 												{
 													"key": "token",
-													"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJycm1AZXhhbXBsZS5jb20iLCJ1c2VySWQiOiI1ZDNmZDc3NC1iNWI1LTQ2M2ItOGQyYS05YTdiNzcwNGI4Y2MiLCJyb2xlIjoiVVNFUiIsInZlcnNpb24iOjUsImlhdCI6MTc1Nzc4MTQ1NywiZXhwIjoxNzU3ODY3ODU3fQ.IqQIweUnsEAn1vhsonjj2GsNzPX1t0nhhKQdx5wG1nI",
+													"value": "{{vault:authorization-secret}}",
 													"type": "string"
 												}
 											]
@@ -1493,12 +1490,10 @@
 											}
 										},
 										"url": {
-											"raw": "http://localhost:8080/api/posts/c4458113-42b6-4f17-85cb-71cb9862a33f/comments",
-											"protocol": "http",
+											"raw": "{{URL}}/api/posts/c4458113-42b6-4f17-85cb-71cb9862a33f/comments",
 											"host": [
-												"localhost"
+												"{{URL}}"
 											],
-											"port": "8080",
 											"path": [
 												"api",
 												"posts",
@@ -1517,7 +1512,7 @@
 											"bearer": [
 												{
 													"key": "token",
-													"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJycm1AZXhhbXBsZS5jb20iLCJ1c2VySWQiOiI1ZDNmZDc3NC1iNWI1LTQ2M2ItOGQyYS05YTdiNzcwNGI4Y2MiLCJyb2xlIjoiVVNFUiIsInZlcnNpb24iOjUsImlhdCI6MTc1Nzc4MTQ1NywiZXhwIjoxNzU3ODY3ODU3fQ.IqQIweUnsEAn1vhsonjj2GsNzPX1t0nhhKQdx5wG1nI",
+													"value": "{{vault:authorization-secret}}",
 													"type": "string"
 												}
 											]
@@ -1525,12 +1520,10 @@
 										"method": "DELETE",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:8080/api/posts/c4458113-42b6-4f17-85cb-71cb9862a33f/comments/b790117c-26d3-475e-a07c-00826b1d4485",
-											"protocol": "http",
+											"raw": "{{URL}}/api/posts/c4458113-42b6-4f17-85cb-71cb9862a33f/comments/b790117c-26d3-475e-a07c-00826b1d4485",
 											"host": [
-												"localhost"
+												"{{URL}}"
 											],
-											"port": "8080",
 											"path": [
 												"api",
 												"posts",
@@ -1543,16 +1536,175 @@
 									"response": []
 								}
 							]
+						}
+					]
+				},
+				{
+					"name": "Goal",
+					"item": [
+						{
+							"name": "Get Current User Goals",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Banana\",\r\n  \"caloriesPer100g\": 52,\r\n  \"proteinPer100g\": 0.3,\r\n  \"carbsPer100g\": 14,\r\n  \"fatsPer100g\": 0.2,\r\n  \"fiberPer100g\": 2.4,\r\n  \"sugarPer100g\": 10.4,\r\n  \"category\": \"FRUIT\"\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{URL}}/api/goals",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"goals"
+									]
+								}
+							},
+							"response": []
 						},
 						{
-							"name": "Create new post",
+							"name": "Get Goal By Id For Current User",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Banana\",\r\n  \"caloriesPer100g\": 52,\r\n  \"proteinPer100g\": 0.3,\r\n  \"carbsPer100g\": 14,\r\n  \"fatsPer100g\": 0.2,\r\n  \"fiberPer100g\": 2.4,\r\n  \"sugarPer100g\": 10.4,\r\n  \"category\": \"FRUIT\"\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{URL}}/api/goals/1e5c32fe-4fae-4c64-a638-630bc1105c74",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"goals",
+										"1e5c32fe-4fae-4c64-a638-630bc1105c74"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Goal For Current User",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"description\": \"Lose 5 kg\",\r\n  \"status\": \"IN_PROGRESS\",\r\n  \"targetWeight\": 65.0,\r\n  \"currentWeight\": 70.0,\r\n  \"deadline\": \"2025-12-31\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/goals",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"goals"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Goal",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": \"NOT_STARTED\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/goals/1e5c32fe-4fae-4c64-a638-630bc1105c74",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"goals",
+										"1e5c32fe-4fae-4c64-a638-630bc1105c74"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Restore Goal",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/goals/6e87abdb-3661-4eea-9ce7-08e7a9efefaf/restore",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"goals",
+										"6e87abdb-3661-4eea-9ce7-08e7a9efefaf",
+										"restore"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Goal",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{URL}}/api/goals/6e87abdb-3661-4eea-9ce7-08e7a9efefaf",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"goals",
+										"6e87abdb-3661-4eea-9ce7-08e7a9efefaf"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Health Metric",
+					"item": [
+						{
+							"name": "Create Health Metric User",
 							"request": {
 								"auth": {
 									"type": "bearer",
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{vault:authorization-secret}}",
+											"value": "{{token user}}",
 											"type": "string"
 										}
 									]
@@ -1561,7 +1713,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"content\": \"Just finished a great workout session 💪🔥\",\r\n  \"imageUrl\": \"https://example.com/images/workout123.jpg\"\r\n}\r\n",
+									"raw": "{\r\n  \"weight\": 70.5,\r\n  \"height\": 175,\r\n  \"bodyMeasurements\": {\r\n    \"chest\": 95,\r\n    \"waist\": 80,\r\n    \"hips\": 92,\r\n    \"neck\": 38,\r\n    \"biceps\": 32,\r\n    \"thighs\": 55,\r\n    \"calves\": 36\r\n  },\r\n  \"date\": \"2025-09-08\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1569,29 +1721,72 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8080/api/posts",
+									"raw": "http://localhost:8080/health-metrics",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
 									"port": "8080",
 									"path": [
-										"api",
-										"posts"
+										"health-metrics"
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "Get all posts",
+							"name": "Create Health Metric Admin",
 							"request": {
 								"auth": {
 									"type": "bearer",
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJycm1AZXhhbXBsZS5jb20iLCJ1c2VySWQiOiI1ZDNmZDc3NC1iNWI1LTQ2M2ItOGQyYS05YTdiNzcwNGI4Y2MiLCJyb2xlIjoiVVNFUiIsInZlcnNpb24iOjMsImlhdCI6MTc1NzUzNzA3NywiZXhwIjoxNzU3NjIzNDc3fQ.W9VKjkiVX7CDcExAdHAssVhj1dFe6VJgFTrWAWLQQk4",
+											"value": "{{token admin}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"weight\": 70.5,\r\n  \"height\": 175,\r\n  \"bodyMeasurements\": {\r\n    \"chest\": 95,\r\n    \"waist\": 80,\r\n    \"hips\": 92,\r\n    \"neck\": 38,\r\n    \"biceps\": 32,\r\n    \"thighs\": 55,\r\n    \"calves\": 36\r\n  },\r\n  \"date\": \"2025-09-10\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/health-metrics?userId={{user_id}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"health-metrics"
+									],
+									"query": [
+										{
+											"key": "userId",
+											"value": "{{user_id}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get specific health metric user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token user}}",
 											"type": "string"
 										}
 									]
@@ -1599,38 +1794,325 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/api/posts",
+									"raw": "http://localhost:8080/health-metrics/{{health_metric}}",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
 									"port": "8080",
 									"path": [
-										"api",
-										"posts"
+										"health-metrics",
+										"{{health_metric}}"
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "Delete post by ID",
+							"name": "get specific health metric admin",
 							"request": {
 								"auth": {
 									"type": "bearer",
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJycm1AZXhhbXBsZS5jb20iLCJ1c2VySWQiOiI1ZDNmZDc3NC1iNWI1LTQ2M2ItOGQyYS05YTdiNzcwNGI4Y2MiLCJyb2xlIjoiVVNFUiIsInZlcnNpb24iOjMsImlhdCI6MTc1NzUzNzA3NywiZXhwIjoxNzU3NjIzNDc3fQ.W9VKjkiVX7CDcExAdHAssVhj1dFe6VJgFTrWAWLQQk4",
+											"value": "{{token admin}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/health-metrics/{{health_metric}}?userId={{userId}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"health-metrics",
+										"{{health_metric}}"
+									],
+									"query": [
+										{
+											"key": "userId",
+											"value": "{{userId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all health metrics for specific user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/health-metrics/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"health-metrics",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all health metrics for specific user admin",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token admin}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/health-metrics/user?userId={{user id}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"health-metrics",
+										"user"
+									],
+									"query": [
+										{
+											"key": "userId",
+											"value": "{{user id}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all health metrics for admin",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token admin}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/health-metrics/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"health-metrics",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update metric for user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"weight\": 72,\r\n  \"height\": 176,\r\n  \"bodyMeasurements\": {\r\n    \"chest\": 96,\r\n    \"waist\": 79,\r\n    \"hips\": 91,\r\n    \"neck\": 39,\r\n    \"biceps\": 33,\r\n    \"thighs\": 56,\r\n    \"calves\": 38\r\n  },\r\n  \"date\": \"2025-09-09\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/health-metrics/{{health_metric}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"health-metrics",
+										"{{health_metric}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update metric for user admin",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token admin}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"weight\": 72,\r\n  \"height\": 176,\r\n  \"bodyMeasurements\": {\r\n    \"chest\": 96,\r\n    \"waist\": 79,\r\n    \"hips\": 91,\r\n    \"neck\": 39,\r\n    \"biceps\": 33,\r\n    \"thighs\": 56,\r\n    \"calves\": 38\r\n  },\r\n  \"date\": \"2025-09-09\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/health-metrics/{{health_metric}}?userId={{userId}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"health-metrics",
+										"{{health_metric}}"
+									],
+									"query": [
+										{
+											"key": "userId",
+											"value": "{{userId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete metric user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token user}}",
 											"type": "string"
 										}
 									]
 								},
 								"method": "DELETE",
 								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/health-metrics/{{health_metric}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"health-metrics",
+										"{{health_metric}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete metric admin",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token admin}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/health-metrics/{{health_metric}}?userId={{userId}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"health-metrics",
+										"{{health_metric}}"
+									],
+									"query": [
+										{
+											"key": "userId",
+											"value": "{{userId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Workout Log",
+					"item": [
+						{
+							"name": "Create Workout Log User",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "",
+									"raw": "{\n  \"workoutId\": \"{{workout_id}}\",\n  \"date\": \"2025-09-08\",\n  \"syncStatus\": \"PENDING\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1638,763 +2120,376 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8080/api/posts/c4458113-42b6-4f17-85cb-71cb9862a33f",
+									"raw": "http://localhost:8080/workout-logs",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
 									"port": "8080",
 									"path": [
-										"api",
-										"posts",
-										"c4458113-42b6-4f17-85cb-71cb9862a33f"
+										"workout-logs"
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "Get post by ID",
+							"name": "Create Workout Log Admin",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token admin}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"workoutId\": \"{{workout_id}}\",\n  \"date\": \"2025-09-08\",\n  \"syncStatus\": \"PENDING\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/workout-logs?userId={{user_id}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"workout-logs"
+									],
+									"query": [
+										{
+											"key": "userId",
+											"value": "{{user_id}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Specific Workout Log User",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token user}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": ""
+									"raw": "http://localhost:8080/workout-logs/{{workout_log_id}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"workout-logs",
+										"{{workout_log_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Specific Workout Log Admin",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token admin}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/workout-logs/{{workout_log_id}}?userId={{userId}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"workout-logs",
+										"{{workout_log_id}}"
+									],
+									"query": [
+										{
+											"key": "userId",
+											"value": "{{userId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Workout Logs For User",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/workout-logs/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"workout-logs",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Workout Logs For User Admin",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token admin}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/workout-logs/user?userId={{userId}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"workout-logs",
+										"user"
+									],
+									"query": [
+										{
+											"key": "userId",
+											"value": "{{userId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Workout Logs Admin",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token admin}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/workout-logs/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"workout-logs",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Workout Log User",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"date\": \"2025-09-09\",\n  \"syncStatus\": \"SYNCED\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/workout-logs/{{workout_log_id}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"workout-logs",
+										"{{workout_log_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Workout Log Admin",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token admin}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"date\": \"2025-09-09\",\n  \"syncStatus\": \"SYNCED\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/workout-logs/{{workout_log_id}}?userId={{userId}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"workout-logs",
+										"{{workout_log_id}}"
+									],
+									"query": [
+										{
+											"key": "userId",
+											"value": "{{userId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Workout Log User",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/workout-logs/{{workout_log_id}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"workout-logs",
+										"{{workout_log_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Workout Log Admin",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token admin}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/workout-logs/{{workout_log_id}}?userId={{userId}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"workout-logs",
+										"{{workout_log_id}}"
+									],
+									"query": [
+										{
+											"key": "userId",
+											"value": "{{userId}}"
+										}
+									]
 								}
 							},
 							"response": []
 						}
 					]
-				}
-			]
-		},
-		{
-			"name": "Health Metric",
-			"item": [
-				{
-					"name": "Create Health Metric User",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token user}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"weight\": 70.5,\r\n  \"height\": 175,\r\n  \"bodyMeasurements\": {\r\n    \"chest\": 95,\r\n    \"waist\": 80,\r\n    \"hips\": 92,\r\n    \"neck\": 38,\r\n    \"biceps\": 32,\r\n    \"thighs\": 55,\r\n    \"calves\": 36\r\n  },\r\n  \"date\": \"2025-09-08\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/health-metrics",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"health-metrics"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create Health Metric Admin",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token admin}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"weight\": 70.5,\r\n  \"height\": 175,\r\n  \"bodyMeasurements\": {\r\n    \"chest\": 95,\r\n    \"waist\": 80,\r\n    \"hips\": 92,\r\n    \"neck\": 38,\r\n    \"biceps\": 32,\r\n    \"thighs\": 55,\r\n    \"calves\": 36\r\n  },\r\n  \"date\": \"2025-09-10\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/health-metrics?userId={{user_id}}",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"health-metrics"
-							],
-							"query": [
-								{
-									"key": "userId",
-									"value": "{{user_id}}"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get specific health metric user",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token user}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/health-metrics/{{health_metric}}",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"health-metrics",
-								"{{health_metric}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get specific health metric admin",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token admin}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/health-metrics/{{health_metric}}?userId={{userId}}",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"health-metrics",
-								"{{health_metric}}"
-							],
-							"query": [
-								{
-									"key": "userId",
-									"value": "{{userId}}"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get all health metrics for specific user",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token user}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/health-metrics/user",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"health-metrics",
-								"user"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get all health metrics for specific user admin",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token admin}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/health-metrics/user?userId={{user id}}",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"health-metrics",
-								"user"
-							],
-							"query": [
-								{
-									"key": "userId",
-									"value": "{{user id}}"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get all health metrics for admin",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token admin}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/health-metrics/all",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"health-metrics",
-								"all"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update metric for user",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token user}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"weight\": 72,\r\n  \"height\": 176,\r\n  \"bodyMeasurements\": {\r\n    \"chest\": 96,\r\n    \"waist\": 79,\r\n    \"hips\": 91,\r\n    \"neck\": 39,\r\n    \"biceps\": 33,\r\n    \"thighs\": 56,\r\n    \"calves\": 38\r\n  },\r\n  \"date\": \"2025-09-09\"\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/health-metrics/{{health_metric}}",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"health-metrics",
-								"{{health_metric}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update metric for user admin",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token admin}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"weight\": 72,\r\n  \"height\": 176,\r\n  \"bodyMeasurements\": {\r\n    \"chest\": 96,\r\n    \"waist\": 79,\r\n    \"hips\": 91,\r\n    \"neck\": 39,\r\n    \"biceps\": 33,\r\n    \"thighs\": 56,\r\n    \"calves\": 38\r\n  },\r\n  \"date\": \"2025-09-09\"\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/health-metrics/{{health_metric}}?userId={{userId}}",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"health-metrics",
-								"{{health_metric}}"
-							],
-							"query": [
-								{
-									"key": "userId",
-									"value": "{{userId}}"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete metric user",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token user}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/health-metrics/{{health_metric}}",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"health-metrics",
-								"{{health_metric}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete metric admin",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token admin}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/health-metrics/{{health_metric}}?userId={{userId}}",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"health-metrics",
-								"{{health_metric}}"
-							],
-							"query": [
-								{
-									"key": "userId",
-									"value": "{{userId}}"
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Workout Log",
-			"item": [
-				{
-				"name": "Create Workout Log User",
-				"request": {
-					"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-						"key": "token",
-						"value": "{{token user}}",
-						"type": "string"
-						}
-					]
-					},
-					"method": "POST",
-					"header": [],
-					"body": {
-					"mode": "raw",
-					"raw": "{\n  \"workoutId\": \"{{workout_id}}\",\n  \"date\": \"2025-09-08\",\n  \"syncStatus\": \"PENDING\"\n}",
-					"options": {
-						"raw": {
-						"language": "json"
-						}
-					}
-					},
-					"url": {
-					"raw": "http://localhost:8080/workout-logs",
-					"protocol": "http",
-					"host": ["localhost"],
-					"port": "8080",
-					"path": ["workout-logs"]
-					}
-				},
-				"response": []
-				},
-				{
-				"name": "Create Workout Log Admin",
-				"request": {
-					"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-						"key": "token",
-						"value": "{{token admin}}",
-						"type": "string"
-						}
-					]
-					},
-					"method": "POST",
-					"header": [],
-					"body": {
-					"mode": "raw",
-					"raw": "{\n  \"workoutId\": \"{{workout_id}}\",\n  \"date\": \"2025-09-08\",\n  \"syncStatus\": \"PENDING\"\n}",
-					"options": {
-						"raw": {
-						"language": "json"
-						}
-					}
-					},
-					"url": {
-					"raw": "http://localhost:8080/workout-logs?userId={{user_id}}",
-					"protocol": "http",
-					"host": ["localhost"],
-					"port": "8080",
-					"path": ["workout-logs"],
-					"query": [
-						{ "key": "userId", "value": "{{user_id}}" }
-					]
-					}
-				},
-				"response": []
-				},
-				{
-				"name": "Get Specific Workout Log User",
-				"request": {
-					"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-						"key": "token",
-						"value": "{{token user}}",
-						"type": "string"
-						}
-					]
-					},
-					"method": "GET",
-					"header": [],
-					"url": {
-					"raw": "http://localhost:8080/workout-logs/{{workout_log_id}}",
-					"protocol": "http",
-					"host": ["localhost"],
-					"port": "8080",
-					"path": ["workout-logs", "{{workout_log_id}}"]
-					}
-				},
-				"response": []
-				},
-				{
-				"name": "Get Specific Workout Log Admin",
-				"request": {
-					"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-						"key": "token",
-						"value": "{{token admin}}",
-						"type": "string"
-						}
-					]
-					},
-					"method": "GET",
-					"header": [],
-					"url": {
-					"raw": "http://localhost:8080/workout-logs/{{workout_log_id}}?userId={{userId}}",
-					"protocol": "http",
-					"host": ["localhost"],
-					"port": "8080",
-					"path": ["workout-logs", "{{workout_log_id}}"],
-					"query": [
-						{ "key": "userId", "value": "{{userId}}" }
-					]
-					}
-				},
-				"response": []
-				},
-				{
-				"name": "Get All Workout Logs For User",
-				"request": {
-					"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-						"key": "token",
-						"value": "{{token user}}",
-						"type": "string"
-						}
-					]
-					},
-					"method": "GET",
-					"header": [],
-					"url": {
-					"raw": "http://localhost:8080/workout-logs/user",
-					"protocol": "http",
-					"host": ["localhost"],
-					"port": "8080",
-					"path": ["workout-logs", "user"]
-					}
-				},
-				"response": []
-				},
-				{
-				"name": "Get All Workout Logs For User Admin",
-				"request": {
-					"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-						"key": "token",
-						"value": "{{token admin}}",
-						"type": "string"
-						}
-					]
-					},
-					"method": "GET",
-					"header": [],
-					"url": {
-					"raw": "http://localhost:8080/workout-logs/user?userId={{userId}}",
-					"protocol": "http",
-					"host": ["localhost"],
-					"port": "8080",
-					"path": ["workout-logs", "user"],
-					"query": [
-						{ "key": "userId", "value": "{{userId}}" }
-					]
-					}
-				},
-				"response": []
-				},
-				{
-				"name": "Get All Workout Logs Admin",
-				"request": {
-					"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-						"key": "token",
-						"value": "{{token admin}}",
-						"type": "string"
-						}
-					]
-					},
-					"method": "GET",
-					"header": [],
-					"url": {
-					"raw": "http://localhost:8080/workout-logs/all",
-					"protocol": "http",
-					"host": ["localhost"],
-					"port": "8080",
-					"path": ["workout-logs", "all"]
-					}
-				},
-				"response": []
-				},
-				{
-				"name": "Update Workout Log User",
-				"request": {
-					"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-						"key": "token",
-						"value": "{{token user}}",
-						"type": "string"
-						}
-					]
-					},
-					"method": "PATCH",
-					"header": [],
-					"body": {
-					"mode": "raw",
-					"raw": "{\n  \"date\": \"2025-09-09\",\n  \"syncStatus\": \"SYNCED\"\n}",
-					"options": {
-						"raw": {
-						"language": "json"
-						}
-					}
-					},
-					"url": {
-					"raw": "http://localhost:8080/workout-logs/{{workout_log_id}}",
-					"protocol": "http",
-					"host": ["localhost"],
-					"port": "8080",
-					"path": ["workout-logs", "{{workout_log_id}}"]
-					}
-				},
-				"response": []
-				},
-				{
-				"name": "Update Workout Log Admin",
-				"request": {
-					"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-						"key": "token",
-						"value": "{{token admin}}",
-						"type": "string"
-						}
-					]
-					},
-					"method": "PATCH",
-					"header": [],
-					"body": {
-					"mode": "raw",
-					"raw": "{\n  \"date\": \"2025-09-09\",\n  \"syncStatus\": \"SYNCED\"\n}",
-					"options": {
-						"raw": {
-						"language": "json"
-						}
-					}
-					},
-					"url": {
-					"raw": "http://localhost:8080/workout-logs/{{workout_log_id}}?userId={{userId}}",
-					"protocol": "http",
-					"host": ["localhost"],
-					"port": "8080",
-					"path": ["workout-logs", "{{workout_log_id}}"],
-					"query": [
-						{ "key": "userId", "value": "{{userId}}" }
-					]
-					}
-				},
-				"response": []
-				},
-				{
-				"name": "Delete Workout Log User",
-				"request": {
-					"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-						"key": "token",
-						"value": "{{token user}}",
-						"type": "string"
-						}
-					]
-					},
-					"method": "DELETE",
-					"header": [],
-					"url": {
-					"raw": "http://localhost:8080/workout-logs/{{workout_log_id}}",
-					"protocol": "http",
-					"host": ["localhost"],
-					"port": "8080",
-					"path": ["workout-logs", "{{workout_log_id}}"]
-					}
-				},
-				"response": []
-				},
-				{
-				"name": "Delete Workout Log Admin",
-				"request": {
-					"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-						"key": "token",
-						"value": "{{token admin}}",
-						"type": "string"
-						}
-					]
-					},
-					"method": "DELETE",
-					"header": [],
-					"url": {
-					"raw": "http://localhost:8080/workout-logs/{{workout_log_id}}?userId={{userId}}",
-					"protocol": "http",
-					"host": ["localhost"],
-					"port": "8080",
-					"path": ["workout-logs", "{{workout_log_id}}"],
-					"query": [
-						{ "key": "userId", "value": "{{userId}}" }
-					]
-					}
-				},
-				"response": []
 				}
 			]
 		}
