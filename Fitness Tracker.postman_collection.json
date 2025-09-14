@@ -2066,6 +2066,337 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Workout Log",
+			"item": [
+				{
+				"name": "Create Workout Log User",
+				"request": {
+					"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+						"key": "token",
+						"value": "{{token user}}",
+						"type": "string"
+						}
+					]
+					},
+					"method": "POST",
+					"header": [],
+					"body": {
+					"mode": "raw",
+					"raw": "{\n  \"workoutId\": \"{{workout_id}}\",\n  \"date\": \"2025-09-08\",\n  \"syncStatus\": \"PENDING\"\n}",
+					"options": {
+						"raw": {
+						"language": "json"
+						}
+					}
+					},
+					"url": {
+					"raw": "http://localhost:8080/workout-logs",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["workout-logs"]
+					}
+				},
+				"response": []
+				},
+				{
+				"name": "Create Workout Log Admin",
+				"request": {
+					"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+						"key": "token",
+						"value": "{{token admin}}",
+						"type": "string"
+						}
+					]
+					},
+					"method": "POST",
+					"header": [],
+					"body": {
+					"mode": "raw",
+					"raw": "{\n  \"workoutId\": \"{{workout_id}}\",\n  \"date\": \"2025-09-08\",\n  \"syncStatus\": \"PENDING\"\n}",
+					"options": {
+						"raw": {
+						"language": "json"
+						}
+					}
+					},
+					"url": {
+					"raw": "http://localhost:8080/workout-logs?userId={{user_id}}",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["workout-logs"],
+					"query": [
+						{ "key": "userId", "value": "{{user_id}}" }
+					]
+					}
+				},
+				"response": []
+				},
+				{
+				"name": "Get Specific Workout Log User",
+				"request": {
+					"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+						"key": "token",
+						"value": "{{token user}}",
+						"type": "string"
+						}
+					]
+					},
+					"method": "GET",
+					"header": [],
+					"url": {
+					"raw": "http://localhost:8080/workout-logs/{{workout_log_id}}",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["workout-logs", "{{workout_log_id}}"]
+					}
+				},
+				"response": []
+				},
+				{
+				"name": "Get Specific Workout Log Admin",
+				"request": {
+					"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+						"key": "token",
+						"value": "{{token admin}}",
+						"type": "string"
+						}
+					]
+					},
+					"method": "GET",
+					"header": [],
+					"url": {
+					"raw": "http://localhost:8080/workout-logs/{{workout_log_id}}?userId={{userId}}",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["workout-logs", "{{workout_log_id}}"],
+					"query": [
+						{ "key": "userId", "value": "{{userId}}" }
+					]
+					}
+				},
+				"response": []
+				},
+				{
+				"name": "Get All Workout Logs For User",
+				"request": {
+					"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+						"key": "token",
+						"value": "{{token user}}",
+						"type": "string"
+						}
+					]
+					},
+					"method": "GET",
+					"header": [],
+					"url": {
+					"raw": "http://localhost:8080/workout-logs/user",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["workout-logs", "user"]
+					}
+				},
+				"response": []
+				},
+				{
+				"name": "Get All Workout Logs For User Admin",
+				"request": {
+					"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+						"key": "token",
+						"value": "{{token admin}}",
+						"type": "string"
+						}
+					]
+					},
+					"method": "GET",
+					"header": [],
+					"url": {
+					"raw": "http://localhost:8080/workout-logs/user?userId={{userId}}",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["workout-logs", "user"],
+					"query": [
+						{ "key": "userId", "value": "{{userId}}" }
+					]
+					}
+				},
+				"response": []
+				},
+				{
+				"name": "Get All Workout Logs Admin",
+				"request": {
+					"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+						"key": "token",
+						"value": "{{token admin}}",
+						"type": "string"
+						}
+					]
+					},
+					"method": "GET",
+					"header": [],
+					"url": {
+					"raw": "http://localhost:8080/workout-logs/all",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["workout-logs", "all"]
+					}
+				},
+				"response": []
+				},
+				{
+				"name": "Update Workout Log User",
+				"request": {
+					"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+						"key": "token",
+						"value": "{{token user}}",
+						"type": "string"
+						}
+					]
+					},
+					"method": "PATCH",
+					"header": [],
+					"body": {
+					"mode": "raw",
+					"raw": "{\n  \"date\": \"2025-09-09\",\n  \"syncStatus\": \"SYNCED\"\n}",
+					"options": {
+						"raw": {
+						"language": "json"
+						}
+					}
+					},
+					"url": {
+					"raw": "http://localhost:8080/workout-logs/{{workout_log_id}}",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["workout-logs", "{{workout_log_id}}"]
+					}
+				},
+				"response": []
+				},
+				{
+				"name": "Update Workout Log Admin",
+				"request": {
+					"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+						"key": "token",
+						"value": "{{token admin}}",
+						"type": "string"
+						}
+					]
+					},
+					"method": "PATCH",
+					"header": [],
+					"body": {
+					"mode": "raw",
+					"raw": "{\n  \"date\": \"2025-09-09\",\n  \"syncStatus\": \"SYNCED\"\n}",
+					"options": {
+						"raw": {
+						"language": "json"
+						}
+					}
+					},
+					"url": {
+					"raw": "http://localhost:8080/workout-logs/{{workout_log_id}}?userId={{userId}}",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["workout-logs", "{{workout_log_id}}"],
+					"query": [
+						{ "key": "userId", "value": "{{userId}}" }
+					]
+					}
+				},
+				"response": []
+				},
+				{
+				"name": "Delete Workout Log User",
+				"request": {
+					"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+						"key": "token",
+						"value": "{{token user}}",
+						"type": "string"
+						}
+					]
+					},
+					"method": "DELETE",
+					"header": [],
+					"url": {
+					"raw": "http://localhost:8080/workout-logs/{{workout_log_id}}",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["workout-logs", "{{workout_log_id}}"]
+					}
+				},
+				"response": []
+				},
+				{
+				"name": "Delete Workout Log Admin",
+				"request": {
+					"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+						"key": "token",
+						"value": "{{token admin}}",
+						"type": "string"
+						}
+					]
+					},
+					"method": "DELETE",
+					"header": [],
+					"url": {
+					"raw": "http://localhost:8080/workout-logs/{{workout_log_id}}?userId={{userId}}",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["workout-logs", "{{workout_log_id}}"],
+					"query": [
+						{ "key": "userId", "value": "{{userId}}" }
+					]
+					}
+				},
+				"response": []
+				}
+			]
 		}
 	],
 	"auth": {
