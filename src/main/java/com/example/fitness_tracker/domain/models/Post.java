@@ -1,5 +1,6 @@
 package com.example.fitness_tracker.domain.models;
 
+import com.example.fitness_tracker.domain.models.auditable.BaseEntity;
 import com.example.fitness_tracker.domain.models.auditable.BaseEntityWithSoftDelete;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -13,7 +14,7 @@ import java.util.UUID;
 @Table(name = "posts")
 @Getter
 @Setter
-public class Post extends BaseEntityWithSoftDelete {
+public class Post extends BaseEntity {
 
 
     @ManyToOne(fetch = FetchType.LAZY)

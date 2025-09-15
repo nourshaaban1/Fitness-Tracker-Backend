@@ -1,5 +1,6 @@
 package com.example.fitness_tracker.service;
 
+import com.example.fitness_tracker.domain.dto.Community.PostCommentsResponse;
 import com.example.fitness_tracker.domain.models.Comment;
 import com.example.fitness_tracker.domain.models.Post;
 import com.example.fitness_tracker.domain.models.User;
@@ -13,6 +14,7 @@ import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 @Getter
 
@@ -24,6 +26,13 @@ public class CommentService {
 
     @Autowired
     private PostRepository postRepository;
+
+    public PostCommentsResponse getCommentsByPostId(UUID postId) {
+        Post post = postRepository.findById(postId).orElseThrow(() -> new NotFoundException("Post not found"));
+        List<Comment> comments = commentRepository.findAllByPostIdAndDeletedAtIsNull(postId);
+        List<CommentResponseDto> commentResponseDto = comments.stream().map(this::mapToResponseDto).toList();
+        return new PostCommentsResponse(comments.size(), commentResponseDto);
+    }
 
     public CommentResponseDto createComment(UUID postId, CommentCreateDto dto, UUID userId) {
         Post post = postRepository.findById(postId).orElseThrow(() -> new NotFoundException("Post not found"));

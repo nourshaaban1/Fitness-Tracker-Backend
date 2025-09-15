@@ -46,8 +46,7 @@ public class PostService {
         if (!post.getUser().getId().equals(currentUser.getId()) && !"ADMIN".equals(currentUser.getRole())) {
             throw new UnauthorizedException("Not authorized to delete this post");
         }
-        post.softDelete();
-        postRepository.save(post);
+        postRepository.delete(post);
     }
 
     private PostResponseDto mapToResponseDto(Post post) {

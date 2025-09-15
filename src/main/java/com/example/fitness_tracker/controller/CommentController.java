@@ -1,5 +1,6 @@
 package com.example.fitness_tracker.controller;
 
+import com.example.fitness_tracker.domain.dto.Community.PostCommentsResponse;
 import com.example.fitness_tracker.domain.models.User;
 import com.example.fitness_tracker.domain.dto.Community.CommentCreateDto;
 import com.example.fitness_tracker.domain.dto.Community.CommentResponseDto;
@@ -13,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -28,6 +30,11 @@ public class CommentController {
 
     @Autowired
     private AuthService authService;
+
+    @GetMapping
+    public ResponseEntity<PostCommentsResponse> getCommentsByPostId(@PathVariable UUID postId) {
+        return ResponseEntity.ok(commentService.getCommentsByPostId(postId));
+    }
 
     @PostMapping
     public ResponseEntity<CommentResponseDto> createComment(@PathVariable UUID postId, @RequestBody CommentCreateDto dto, @RequestHeader("Authorization") String authHeader) {
