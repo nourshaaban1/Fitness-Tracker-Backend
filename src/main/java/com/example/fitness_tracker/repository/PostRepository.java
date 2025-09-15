@@ -4,9 +4,12 @@ import com.example.fitness_tracker.domain.models.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.UUID;
-
 @Repository
 public interface PostRepository extends JpaRepository<Post, UUID> {
+
+    // This already respects @Where (deleted_at IS NULL)
+    List<Post> findAll();
 
 }

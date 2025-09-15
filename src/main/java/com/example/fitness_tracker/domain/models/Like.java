@@ -1,5 +1,6 @@
 package com.example.fitness_tracker.domain.models;
 
+import com.example.fitness_tracker.domain.models.auditable.BaseEntity;
 import com.example.fitness_tracker.domain.models.auditable.BaseEntityWithSoftDelete;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -11,7 +12,7 @@ import java.util.UUID;
 @Table(name = "likes")
 @Getter
 @Setter
-public class Like extends BaseEntityWithSoftDelete {
+public class Like extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id", nullable = false)

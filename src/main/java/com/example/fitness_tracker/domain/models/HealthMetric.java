@@ -45,12 +45,12 @@ public class HealthMetric extends BaseEntityWithSoftDelete {
     private LocalDate date;
 
     /** Auto-calculate BMI before persisting */
-    @PrePersist
-    @PreUpdate
-    private void calculateBmi() {
-        if (height > 0 && weight > 0) {
-            float heightInMeters = height / 100f;
-            this.bmi = weight / (heightInMeters * heightInMeters);
-        }
-    }
+//    @PrePersist
+//    @PreUpdate
+//    private void calculateBmi() {
+//        if (height > 0 && weight > 0) {
+//            float heightInMeters = height / 100f;
+//            this.bmi = weight / (heightInMeters * heightInMeters);
+//        }
+//    }
 }
