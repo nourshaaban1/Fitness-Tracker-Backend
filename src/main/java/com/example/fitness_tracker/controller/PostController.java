@@ -24,11 +24,9 @@ public class PostController {
 
     private final JwtService jwtService;
 
-    @Autowired
-    private PostService postService;
+    private final PostService postService;
 
-    @Autowired
-    private AuthService authService;
+    private final AuthService authService;
 
     @PostMapping
     public ResponseEntity<PostResponseDto> createPost(@RequestBody PostCreateDto dto, @RequestHeader("Authorization") String authHeader) {
