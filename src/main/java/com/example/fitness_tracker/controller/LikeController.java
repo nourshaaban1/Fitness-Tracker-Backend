@@ -17,11 +17,9 @@ public class LikeController {
 
     private final JwtService jwtService;
 
-    @Autowired
-    private LikeService likeService;
+    private final LikeService likeService;
 
-    @Autowired
-    private AuthService authService;
+    private final AuthService authService;
 
     @PostMapping
     public ResponseEntity<Void> likePost(@PathVariable UUID postId, @RequestHeader("Authorization") String authHeader)

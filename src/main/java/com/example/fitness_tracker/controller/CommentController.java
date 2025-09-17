@@ -20,14 +20,11 @@ import java.util.UUID;
 @RequestMapping("/api/posts/{postId}/comments")
 public class CommentController {
 
-    @Autowired
     private final JwtService jwtService;
 
-    @Autowired
-    private CommentService commentService;
+    private final CommentService commentService;
 
-    @Autowired
-    private AuthService authService;
+    private final AuthService authService;
 
     @PostMapping
     public ResponseEntity<CommentResponseDto> createComment(@PathVariable UUID postId, @RequestBody CommentCreateDto dto, @RequestHeader("Authorization") String authHeader) {
