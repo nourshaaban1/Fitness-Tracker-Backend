@@ -89,15 +89,25 @@ public class WorkoutLogService {
     // ===== helper methods =====
 
     private UUID getValidUserId(String authHeader, UUID targetUserId) {
-        UUID currentUserId = jwtService.extractUserId(authHeader);
-        boolean isAdmin = jwtService.extractRole(authHeader).equals("ADMIN");
-        if (isAdmin && targetUserId != null) return targetUserId;
-        return currentUserId;
+        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+            throw new RuntimeException("Missing or invalid Authorization header");
+        }
+
+        String token = authHeader.substring(7);
+        UUID requesterId = jwtService.extractUserId(token);
+        String role = jwtService.extractRole(token);
+
+        if ("ADMIN".equalsIgnoreCase(role) && targetUserId != null) {
+            return targetUserId;
+        }
+        return requesterId;
     }
 
     private void validateAdmin(String authHeader) {
-        if (!"ADMIN".equals(jwtService.extractRole(authHeader))) {
-            throw new RuntimeException("Unauthorized: Admin access required");
+        String token = authHeader.substring(7);
+        String role = jwtService.extractRole(token);
+        if (!"ADMIN".equalsIgnoreCase(role)) {
+            throw new RuntimeException("Admins only");
         }
     }
 
