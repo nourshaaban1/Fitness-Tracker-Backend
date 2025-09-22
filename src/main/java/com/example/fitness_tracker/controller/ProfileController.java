@@ -5,6 +5,8 @@ import com.example.fitness_tracker.domain.dto.Profile.UpdateProfileResponse;
 import com.example.fitness_tracker.domain.dto.Profile.UserDto;
 import com.example.fitness_tracker.domain.dto.common.ErrorResponse;
 import com.example.fitness_tracker.service.ProfileService;
+
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 import java.util.UUID;
@@ -23,7 +25,7 @@ public class ProfileController {
 
     // Admin-only endpoint to get all users
     @GetMapping("/all")
-    @PreAuthorize("hasRole('ADMIN')") // Only users with ADMIN role can access
+    // @PreAuthorize("hasRole('ADMIN')") // Only users with ADMIN role can access
     public ResponseEntity<?> getAllUsers(
             @RequestHeader("Authorization") String authHeader
     ) {
@@ -60,7 +62,7 @@ public class ProfileController {
     public ResponseEntity<?> updateProfile(
             @RequestHeader("Authorization") String authHeader,
             @RequestParam(value = "userId", required = false) UUID userId,
-            @ModelAttribute UpdateProfileRequest request
+            @Valid @ModelAttribute UpdateProfileRequest request
     ) {
         try {
             UpdateProfileResponse response = profileService.updateProfile(authHeader, request, userId);
