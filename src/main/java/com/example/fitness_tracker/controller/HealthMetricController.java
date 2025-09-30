@@ -3,6 +3,8 @@ package com.example.fitness_tracker.controller;
 import com.example.fitness_tracker.domain.dto.HealthMetric.HealthMetricDto;
 import com.example.fitness_tracker.domain.dto.common.ErrorResponse;
 import com.example.fitness_tracker.service.HealthMetricService;
+
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +23,7 @@ public class HealthMetricController {
     @PostMapping
     public ResponseEntity<?> createMetric(
             @RequestHeader("Authorization") String authHeader,
-            @RequestBody HealthMetricDto dto,
+            @Valid @RequestBody HealthMetricDto dto,
             @RequestParam(value = "userId", required = false) UUID userId
     ) {
         try {
@@ -74,7 +76,7 @@ public class HealthMetricController {
     public ResponseEntity<?> updateMetric(
             @RequestHeader("Authorization") String authHeader,
             @PathVariable UUID metricId,
-            @RequestBody HealthMetricDto dto,
+            @Valid @RequestBody HealthMetricDto dto,
             @RequestParam(value = "userId", required = false) UUID userId
     ) {
         try {

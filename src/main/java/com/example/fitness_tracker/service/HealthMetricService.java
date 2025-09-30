@@ -30,7 +30,7 @@ public class HealthMetricService {
                 .user(user)
                 .weight(dto.getWeight())
                 .height(dto.getHeight())
-                .bmi(0f) // auto-calculated in entity
+                .bmi(dto.getWeight() / (float) Math.pow(dto.getHeight() / 100.0, 2)) // auto-calculated in entity
                 .bodyMeasurements(dto.getBodyMeasurements())
                 .date(dto.getDate())
                 .build();
@@ -70,11 +70,32 @@ public class HealthMetricService {
         HealthMetric metric = healthMetricRepository.findByIdAndUserIdAndDeletedAtIsNull(metricId, userId)
                 .orElseThrow(() -> new RuntimeException("Metric not found"));
 
-        if (dto.getWeight() > 0) metric.setWeight(dto.getWeight());
-        if (dto.getHeight() > 0) metric.setHeight(dto.getHeight());
-        if (dto.getBodyMeasurements() != null) metric.setBodyMeasurements(dto.getBodyMeasurements());
-        if (dto.getDate() != null) metric.setDate(dto.getDate());
+        boolean recalcBmi = false;
 
+        if (dto.getWeight() > 0) {
+            metric.setWeight(dto.getWeight());
+            recalcBmi = true;
+        }
+        if (dto.getHeight() > 0) {
+            metric.setHeight(dto.getHeight());
+            recalcBmi = true;
+        }
+        if (dto.getBodyMeasurements() != null) {
+            metric.setBodyMeasurements(dto.getBodyMeasurements());
+        }
+        if (dto.getDate() != null) {
+            metric.setDate(dto.getDate());
+        }
+
+        // Recalculate BMI only if weight or height updated
+        if (recalcBmi) {
+            float heightInMeters = metric.getHeight() / 100.0f;
+            if (heightInMeters > 0) {
+                float bmi = metric.getWeight() / (heightInMeters * heightInMeters);
+                metric.setBmi(bmi);
+            }
+        }
+        
         HealthMetric updated = healthMetricRepository.save(metric);
         return mapToDto(updated);
     }
