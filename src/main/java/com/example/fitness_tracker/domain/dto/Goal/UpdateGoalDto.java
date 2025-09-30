@@ -11,5 +11,7 @@ import lombok.*;
 public class UpdateGoalDto {
     private String description;
     private Double CurrentWeight;
+    private Double targetWeight;
+    private String deadline;
     private GoalStatus status;
 }

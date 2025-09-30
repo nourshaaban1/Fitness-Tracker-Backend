@@ -52,9 +52,11 @@ public class GoalService {
 
     public GoalDto updateGoal(UUID id, UpdateGoalDto dto) {
         Goal goal = goalRepository.findByIdAndDeletedAtIsNull(id).orElseThrow(() -> new EntityNotFoundException("goal", id));
+        if(dto.getDescription() != null) goal.setDescription(dto.getDescription());
         if(dto.getCurrentWeight() != null) goal.setCurrentWeight(dto.getCurrentWeight());
+        if(dto.getTargetWeight() != null) goal.setTargetWeight(dto.getTargetWeight());
+        if(dto.getDeadline() != null) goal.setDeadline(dto.getDeadline().isEmpty() ? null : java.time.LocalDate.parse(dto.getDeadline()));
         if(dto.getStatus() != null) goal.setStatus(dto.getStatus());
-        if (dto.getDescription() != null) goal.setDescription(goal.getDescription());
         return  goalMapper.toGoalDto(goalRepository.save(goal));
     }
 
