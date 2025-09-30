@@ -89,6 +89,33 @@ public class ProfileService {
         );
     }
 
+    // Get any user's profile (user or admin can see others)
+    public UserDto getUserProfile(String authHeader, UUID targetUserId) {
+        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+            throw new RuntimeException("Missing or invalid Authorization header");
+        }
+
+        String token = authHeader.substring(7);
+        UUID requesterId = jwtService.extractUserId(token);
+
+        userRepository.findByIdAndDeletedAtIsNull(requesterId)
+            .orElseThrow(() -> new RuntimeException("Requester not found"));
+
+        // Allow if requester is same user OR admin OR any user (open access)
+        User user = userRepository.findByIdAndDeletedAtIsNull(targetUserId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        return new UserDto(
+                user.getFirstName(),
+                user.getLastName(),
+                user.getEmail(),
+                user.getProfilePic(),
+                null,
+                null,
+                null
+        );
+    }
+
     // Update profile (own or any if admin)
     public UpdateProfileResponse updateProfile(String authHeader, UpdateProfileRequest request, UUID targetUserId) throws Exception {
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {

@@ -58,6 +58,24 @@ public class ProfileController {
         }
     }
 
+    // Get any user's profile (user and admin)
+    @GetMapping("/{userId}")
+    public ResponseEntity<?> getUserProfile(
+            @RequestHeader("Authorization") String authHeader,
+            @PathVariable UUID userId
+    ) {
+        try {
+            UserDto profile = profileService.getUserProfile(authHeader, userId);
+            return ResponseEntity.ok(profile);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(new ErrorResponse(e.getMessage(), 401));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new ErrorResponse("Server error", 500));
+        }
+    }
+
     @PatchMapping(value = "/update", consumes = {"multipart/form-data"})
     public ResponseEntity<?> updateProfile(
             @RequestHeader("Authorization") String authHeader,
