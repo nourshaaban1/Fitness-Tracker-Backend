@@ -1,0 +1,5099 @@
+{
+	"info": {
+		"_postman_id": "8aeea35e-9e89-4491-b44c-6aee9cfcf435",
+		"name": "Fitness Tracker Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36794928",
+		"_collection_link": "https://gold-crater-669739.postman.co/workspace/My-Workspace~2282e187-74c8-469e-8130-dacd35432e5b/collection/36794928-8aeea35e-9e89-4491-b44c-6aee9cfcf435?action=share&source=collection_link&creator=36794928"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Signup",
+					"item": [
+						{
+							"name": "Test",
+							"item": [
+								{
+									"name": "No Last Name Test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "firstName",
+													"value": "user",
+													"type": "text"
+												},
+												{
+													"key": "lastName",
+													"value": "",
+													"type": "text"
+												},
+												{
+													"key": "email",
+													"value": "test2@example.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "123456",
+													"type": "text"
+												},
+												{
+													"key": "profilePic",
+													"type": "file",
+													"src": []
+												},
+												{
+													"key": "role",
+													"value": "ADMIN",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{URL}}/auth/signup",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"auth",
+												"signup"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "No First Name Test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "firstName",
+													"value": "",
+													"type": "text"
+												},
+												{
+													"key": "lastName",
+													"value": "test2",
+													"type": "text"
+												},
+												{
+													"key": "email",
+													"value": "test2@example.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "123456",
+													"type": "text"
+												},
+												{
+													"key": "profilePic",
+													"type": "file",
+													"src": []
+												},
+												{
+													"key": "role",
+													"value": "ADMIN",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{URL}}/auth/signup",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"auth",
+												"signup"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Invalid Profile Picture",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "firstName",
+													"value": "user",
+													"type": "text"
+												},
+												{
+													"key": "lastName",
+													"value": "test2",
+													"type": "text"
+												},
+												{
+													"key": "email",
+													"value": "useradmin2@example.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "123456",
+													"type": "text"
+												},
+												{
+													"key": "profilePic",
+													"type": "file",
+													"src": "/C:/Users/DELL/Fitness-Tracker-Backend/src/main/java/com/example/fitness_tracker/FitnessTrackerApplication.java"
+												},
+												{
+													"key": "role",
+													"value": "ADMIN",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{URL}}/auth/signup",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"auth",
+												"signup"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Invalid Email Test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "firstName",
+													"value": "user",
+													"type": "text"
+												},
+												{
+													"key": "lastName",
+													"value": "test2",
+													"type": "text"
+												},
+												{
+													"key": "email",
+													"value": "test2example.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "123456",
+													"type": "text"
+												},
+												{
+													"key": "profilePic",
+													"value": "",
+													"type": "file"
+												},
+												{
+													"key": "role",
+													"value": "ADMIN",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{URL}}/auth/signup",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"auth",
+												"signup"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Request",
+							"item": [
+								{
+									"name": "Signup Admin",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"let responseBody = pm.response.json();\r",
+													"pm.environment.set(\"admintoken\", responseBody.token);\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "firstName",
+													"value": "user",
+													"type": "text"
+												},
+												{
+													"key": "lastName",
+													"value": "test2",
+													"type": "text"
+												},
+												{
+													"key": "email",
+													"value": "testadmin@example.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "123456",
+													"type": "text"
+												},
+												{
+													"key": "profilePic",
+													"value": "",
+													"type": "file"
+												},
+												{
+													"key": "role",
+													"value": "ADMIN",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{URL}}/auth/signup",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"auth",
+												"signup"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Signup User",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"let responseBody = pm.response.json();\r",
+													"pm.environment.set(\"usertoken\", responseBody.token);\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "firstName",
+													"value": "user",
+													"type": "text"
+												},
+												{
+													"key": "lastName",
+													"value": "test2",
+													"type": "text"
+												},
+												{
+													"key": "email",
+													"value": "testuser@example.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "123456",
+													"type": "text"
+												},
+												{
+													"key": "profilePic",
+													"value": "",
+													"type": "file"
+												},
+												{
+													"key": "role",
+													"value": "USER",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{URL}}/auth/signup",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"auth",
+												"signup"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"item": [
+						{
+							"name": "Request",
+							"item": [
+								{
+									"name": "Login User",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"let responseBody = pm.response.json();\r",
+													"pm.environment.set(\"usertoken\", responseBody.token);\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"testuser@example.com\",\r\n    \"password\": \"123456\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/auth/login",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Login Admin",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"let responseBody = pm.response.json();\r",
+													"pm.environment.set(\"admintoken\", responseBody.token);\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"testadmin@example.com\",\r\n    \"password\": \"123456\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/auth/login",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Test",
+							"item": [
+								{
+									"name": "Wrong Email Test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"let jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Message is 'Invalid email or password'\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Invalid email or password\");\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"testadmin@xample.com\",\r\n    \"password\": \"123456\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/auth/login",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Wrong Pass Test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"let jsonData = pm.response.json();  // turns response body into a JS object\r",
+													"\r",
+													"pm.test(\"Message is 'Invalid email or password'\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Invalid email or password\");\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"testadmin@example.com\",\r\n    \"password\": \"12346\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/auth/login",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"item": [
+						{
+							"name": "Logout User",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{usertoken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/auth/logout",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Reset Password",
+					"item": [
+						{
+							"name": "Request",
+							"item": [
+								{
+									"name": "Request OTP",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"testuser@example.com\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/auth/otp-request",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"auth",
+												"otp-request"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Reset Password",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"testuser@example.com\",\r\n    \"otp\": \"934813\",\r\n    \"newPassword\": \"123456\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/auth/reset-password",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"auth",
+												"reset-password"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Test",
+							"item": [
+								{
+									"name": "Not registered OTP Req test",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"test1@eexample.com\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/auth/otp-request",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"auth",
+												"otp-request"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "Request",
+					"item": [
+						{
+							"name": "Get Profile User",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{usertoken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/profile",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"profile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Profile Admin",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admintoken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "userId",
+											"value": "a2bee5d9-b9d5-4ec6-b553-bba6f7bacb4a",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL}}/profile",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"profile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Profiles Admin",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admintoken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/profile/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"profile",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Profile User",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{usertoken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "firstName",
+											"value": "user",
+											"type": "text"
+										},
+										{
+											"key": "lastName",
+											"value": "test1",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "test1@example.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "text"
+										},
+										{
+											"key": "profilePic",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "theme",
+											"value": " DARK",
+											"type": "text"
+										},
+										{
+											"key": "notificationsEnabled",
+											"value": "True",
+											"type": "text"
+										},
+										{
+											"key": "workoutReminderTime",
+											"value": "07:30",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/profile/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"profile",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Profile Admin",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "firstName",
+											"value": "user",
+											"type": "text"
+										},
+										{
+											"key": "lastName",
+											"value": "test1",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "test1@example.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "text"
+										},
+										{
+											"key": "profilePic",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "theme",
+											"value": " DARK",
+											"type": "text"
+										},
+										{
+											"key": "notificationsEnabled",
+											"value": "True",
+											"type": "text"
+										},
+										{
+											"key": "workoutReminderTime",
+											"value": "07:30",
+											"type": "text"
+										},
+										{
+											"key": "userId",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/profile/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"profile",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Profile User",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/profile",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"profile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Profile Admin",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "userId",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/profile",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"profile"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Test",
+					"item": [
+						{
+							"name": "Get All Profiles User Token Test",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{usertoken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/profile/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"profile",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Profile Invalid Email Test",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{usertoken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "firstName",
+											"value": "user",
+											"type": "text"
+										},
+										{
+											"key": "lastName",
+											"value": "test1",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "testemail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "text"
+										},
+										{
+											"key": "profilePic",
+											"value": "",
+											"type": "file"
+										},
+										{
+											"key": "theme",
+											"value": " DARK",
+											"type": "text"
+										},
+										{
+											"key": "notificationsEnabled",
+											"value": "True",
+											"type": "text"
+										},
+										{
+											"key": "workoutReminderTime",
+											"value": "07:30",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/profile/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"profile",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Profile Invalid File Test",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"let responseBody = pm.response.json();\r",
+											"pm.environment.set(\"usertoken\", responseBody.token);\r",
+											"\r",
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{usertoken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "firstName",
+											"value": "user",
+											"type": "text"
+										},
+										{
+											"key": "lastName",
+											"value": "test1",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "testuser@example.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "text"
+										},
+										{
+											"key": "profilePic",
+											"type": "file",
+											"src": "/C:/Users/DELL/Fitness-Tracker-Backend/src/main/java/com/example/fitness_tracker/FitnessTrackerApplication.java"
+										},
+										{
+											"key": "theme",
+											"value": " DARK",
+											"type": "text"
+										},
+										{
+											"key": "notificationsEnabled",
+											"value": "True",
+											"type": "text"
+										},
+										{
+											"key": "workoutReminderTime",
+											"value": "07:30",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/profile/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"profile",
+										"update"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Resources",
+			"item": [
+				{
+					"name": "Nutrition",
+					"item": [
+						{
+							"name": "Test",
+							"item": [
+								{
+									"name": "Create Nutrition No Name Test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Banana\",\r\n  \"caloriesPer100g\": -52,\r\n  \"proteinPer100g\": -0.3,\r\n  \"carbsPer100g\": -14,\r\n  \"fatsPer100g\": -0.2,\r\n  \"fiberPer100g\": -2.4,\r\n  \"sugarPer100g\": 10.4,\r\n  \"category\": \"FRUIT\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/nutrition",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"nutrition"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Nutrition Invalid Calories Test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Banana\",\r\n  \"caloriesPer100g\": -52,\r\n  \"proteinPer100g\": 0.3,\r\n  \"carbsPer100g\": 14,\r\n  \"fatsPer100g\": 0.2,\r\n  \"fiberPer100g\": 2.4,\r\n  \"sugarPer100g\": 10.4,\r\n  \"category\": \"FRUIT\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/nutrition",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"nutrition"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Nutrition Invalid Proteins Test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Banana\",\r\n  \"caloriesPer100g\": 52,\r\n  \"proteinPer100g\": -0.3,\r\n  \"carbsPer100g\": 14,\r\n  \"fatsPer100g\": 0.2,\r\n  \"fiberPer100g\": 2.4,\r\n  \"sugarPer100g\": 10.4,\r\n  \"category\": \"FRUIT\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/nutrition",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"nutrition"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Nutrition Invalid Carbs Test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Banana\",\r\n  \"caloriesPer100g\": 52,\r\n  \"proteinPer100g\": 0.3,\r\n  \"carbsPer100g\": -14,\r\n  \"fatsPer100g\": 0.2,\r\n  \"fiberPer100g\": 2.4,\r\n  \"sugarPer100g\": 10.4,\r\n  \"category\": \"FRUIT\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/nutrition",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"nutrition"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Nutrition Invalid Fats Test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Banana\",\r\n  \"caloriesPer100g\": 52,\r\n  \"proteinPer100g\": 0.3,\r\n  \"carbsPer100g\": 14,\r\n  \"fatsPer100g\": -0.2,\r\n  \"fiberPer100g\": 2.4,\r\n  \"sugarPer100g\": 10.4,\r\n  \"category\": \"FRUIT\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/nutrition",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"nutrition"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Nutrition Invalid Fibers Test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Banana\",\r\n  \"caloriesPer100g\": 52,\r\n  \"proteinPer100g\": 0.3,\r\n  \"carbsPer100g\": 14,\r\n  \"fatsPer100g\": 0.2,\r\n  \"fiberPer100g\": -2.4,\r\n  \"sugarPer100g\": 10.4,\r\n  \"category\": \"FRUIT\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/nutrition",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"nutrition"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Nutrition Invalid Sugars Test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Banana\",\r\n  \"caloriesPer100g\": 52,\r\n  \"proteinPer100g\": 0.3,\r\n  \"carbsPer100g\": 14,\r\n  \"fatsPer100g\": 0.2,\r\n  \"fiberPer100g\": 2.4,\r\n  \"sugarPer100g\": -10.4,\r\n  \"category\": \"FRUIT\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/nutrition",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"nutrition"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update nutrition Invalid Sugar",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"sugarPer100g\": -10.4\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/nutrition/{{nutrition_id}}",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"nutrition",
+												"{{nutrition_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update nutrition Invalid Calories",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"caloriesPer100g\": -55\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/nutrition/{{nutrition_id}}",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"nutrition",
+												"{{nutrition_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update nutrition Invalid Proteins",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"proteinsPer100g\": -55\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/nutrition/{{nutrition_id}}",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"nutrition",
+												"{{nutrition_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update nutrition Invalid Carbs",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"carbsPer100g\": -55\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/nutrition/{{nutrition_id}}",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"nutrition",
+												"{{nutrition_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update nutrition Invalid Fats",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"fatsPer100g\": -55\r\n\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/nutrition/{{nutrition_id}}",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"nutrition",
+												"{{nutrition_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update nutrition Invalid Fibers",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"fiberPer100g\": -3.1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/nutrition/{{nutrition_id}}",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"nutrition",
+												"{{nutrition_id}}"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Request",
+							"item": [
+								{
+									"name": "Get All Nutritions",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/nutrition",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"nutrition"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get All nutrition with filters and sorting",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/nutrition?sort=name&min_calories=55&max_calories=200",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"nutrition"
+											],
+											"query": [
+												{
+													"key": "sort",
+													"value": "name"
+												},
+												{
+													"key": "min_calories",
+													"value": "55"
+												},
+												{
+													"key": "max_calories",
+													"value": "200"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Nutrition By Id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/nutrition/{{nutrition_id}}",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"nutrition",
+												"{{nutrition_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Nutrition",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/nutrition/{{nutrition_id}}",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"nutrition",
+												"{{nutrition_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Nutrition",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"let responseBody = pm.response.json();\r",
+													"pm.environment.set(\"nutrition_id\", responseBody.id);"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Banana\",\r\n  \"caloriesPer100g\": 52,\r\n  \"proteinPer100g\": 0.3,\r\n  \"carbsPer100g\": 14,\r\n  \"fatsPer100g\": 0.2,\r\n  \"fiberPer100g\": 2.4,\r\n  \"sugarPer100g\": 10.4,\r\n  \"category\": \"FRUIT\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/nutrition",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"nutrition"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Restore Deleted Nutrition",
+									"protocolProfileBehavior": {
+										"disabledSystemHeaders": {
+											"content-type": true
+										}
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{URL}}/api/nutrition/{{nutrition_id}}/restore",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"nutrition",
+												"{{nutrition_id}}",
+												"restore"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update nutrition",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"caloriesPer100g\": 55,\r\n  \"fiberPer100g\": 3.1\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/nutrition/{{nutrition_id}}",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"nutrition",
+												"{{nutrition_id}}"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Exercise",
+					"item": [
+						{
+							"name": "Test",
+							"item": [
+								{
+									"name": "Create Exercise No Name",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"\",\r\n  \"description\": \"Isometric core strength exercise\",\r\n  \"imageUrl\": \"plank_1400x.webp\",\r\n  \"hasWeights\": false,\r\n  \"trackingMode\": \"TIME\",\r\n  \"category\": \"MIXED\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/exercises",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"exercises"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Exercise No Name",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"\",\r\n  \"hasWeigths\": true\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/exercises/{{exercise_id}}",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"exercises",
+												"{{exercise_id}}"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Request",
+							"item": [
+								{
+									"name": "Get Exercises",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/exercises",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"exercises"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Exercise By Id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/exercises/{{exercise_id}}",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"exercises",
+												"{{exercise_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Exercise",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"let responseBody = pm.response.json();\r",
+													"pm.environment.set(\"exercise_id\", responseBody.id);\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Plank\",\r\n  \"description\": \"Isometric core strength exercise\",\r\n  \"imageUrl\": \"plank_1400x.webp\",\r\n  \"hasWeights\": false,\r\n  \"trackingMode\": \"TIME\",\r\n  \"category\": \"MIXED\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/exercises",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"exercises"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Restore Deleted Exercise",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{URL}}/api/exercises/{{exercise_id}}/restore",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"exercises",
+												"{{exercise_id}}",
+												"restore"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Exercise",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/exercises/{{exercise_id}}",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"exercises",
+												"{{exercise_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Exercise",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Weigted Push-Ups\",\r\n  \"hasWeigths\": true\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/exercises/{{exercise_id}}",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"exercises",
+												"{{exercise_id}}"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Workout",
+					"item": [
+						{
+							"name": "Test",
+							"item": [
+								{
+									"name": "Create Workout No Name Test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"\",\r\n  \"description\": \"High-energy cardio with strong core finish.\",\r\n  \"isShared\": true,\r\n  \"workoutExercises\": [\r\n    \r\n  ]\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/workouts",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"workouts"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Workout No Name",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/workouts/{{workout_id}}",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"workouts",
+												"{{workout_id}}"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Request",
+							"item": [
+								{
+									"name": "Get Workout By Id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/workouts/{{workout_id}}",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"workouts",
+												"{{workout_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Restore Deleted Workout",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/workouts/{{workout_id}}/restore",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"workouts",
+												"{{workout_id}}",
+												"restore"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Workout",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Cardio & Core\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/workouts/{{workout_id}}",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"workouts",
+												"{{workout_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Workout",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/workouts/{{workout_id}}",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"workouts",
+												"{{workout_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Workouts",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Full Body Blast\",\r\n  \"description\": \"A mix of strength and cardio for total body conditioning\",\r\n  \"isShared\": false,\r\n  \"workoutExercises\": [\r\n    {\r\n      \"exerciseName\": \"Squats\",\r\n      \"sets\": 4,\r\n      \"reps\": 15,\r\n      \"duration\": 120,\r\n      \"calories\": 100,\r\n      \"orderInWorkout\": 1,\r\n      \"notes\": \"Go below parallel\"\r\n    },\r\n    {\r\n      \"exerciseName\": \"Push Up\",\r\n      \"sets\": 3,\r\n      \"reps\": 20,\r\n      \"duration\": 60,\r\n      \"calories\": 50,\r\n      \"orderInWorkout\": 2,\r\n      \"notes\": \"Keep elbows tucked\"\r\n    },\r\n    {\r\n      \"exerciseName\": \"Bench Press\",\r\n      \"sets\": 3,\r\n      \"reps\": 12,\r\n      \"duration\": 90,\r\n      \"calories\": 80,\r\n      \"orderInWorkout\": 3,\r\n      \"notes\": \"Explosive jump at the end\"\r\n    }\r\n  ]\r\n}\r\n"
+										},
+										"url": {
+											"raw": "{{URL}}/api/workouts?sort=name",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"workouts"
+											],
+											"query": [
+												{
+													"key": "sort",
+													"value": "name"
+												}
+											]
+										},
+										"description": "You can filter the request results or sort it via request params such as\n\n> workouts?sort=name,asc  \nworkouts?name=Cardio"
+									},
+									"response": []
+								},
+								{
+									"name": "Create Workout",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"let responseBody = pm.response.json();\r",
+													"pm.environment.set(\"workout_id\", responseBody.id);"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Cardio & Core Blast\",\r\n  \"description\": \"High-energy cardio with strong core finish.\",\r\n  \"isShared\": true,\r\n  \"workoutExercises\": [\r\n    \r\n  ]\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/workouts",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"workouts"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Workout Exercises",
+					"item": [
+						{
+							"name": "Test",
+							"item": []
+						},
+						{
+							"name": "Request",
+							"item": [
+								{
+									"name": "Get all exercises of a workout",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/workouts/2dcfe56d-b771-4100-9e58-6edbbaf59d51/exercises",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"workouts",
+												"2dcfe56d-b771-4100-9e58-6edbbaf59d51",
+												"exercises"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get a single exercise of a workout",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/workouts/2dcfe56d-b771-4100-9e58-6edbbaf59d51/exercises/be404850-f2e1-4867-b47f-e2cbc5c211cf",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"workouts",
+												"2dcfe56d-b771-4100-9e58-6edbbaf59d51",
+												"exercises",
+												"be404850-f2e1-4867-b47f-e2cbc5c211cf"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Exercise for a specific workout",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "[\r\n    {\r\n  \"name\": \"Plank\",\r\n  \"description\": \"Isometric core strength exercise\",\r\n  \"imageUrl\": \"plank_1400x.webp\",\r\n  \"hasWeights\": false,\r\n  \"trackingMode\": \"TIME\",\r\n  \"category\": \"MIXED\"\r\n    }\r\n\r\n]",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/workouts/{{workout_id}}/exercises/",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"workouts",
+												"{{workout_id}}",
+												"exercises",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete exercise in a workout by its id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "[\r\n    {\r\n    \"exerciseName\": \"push\",\r\n    \"sets\": 1,\r\n    \"reps\": null,\r\n    \"duration\": 900,\r\n    \"calories\": 150,\r\n    \"orderInWorkout\": 3,\r\n    \"notes\": \"Maintain steady pace for 15 minutes\"\r\n    }\r\n]"
+										},
+										"url": {
+											"raw": "{{URL}}/api/workouts/a70adcfe-cbb5-4e26-b3f6-e51b28dd16a5/exercises/5150d947-9a1f-4867-8470-5af9fe1d04c9",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"workouts",
+												"a70adcfe-cbb5-4e26-b3f6-e51b28dd16a5",
+												"exercises",
+												"5150d947-9a1f-4867-8470-5af9fe1d04c9"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Workout Exercise by Its Id",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"orderInWorkout\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/workouts/2dcfe56d-b771-4100-9e58-6edbbaf59d51/exercises/be404850-f2e1-4867-b47f-e2cbc5c211cf",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"workouts",
+												"2dcfe56d-b771-4100-9e58-6edbbaf59d51",
+												"exercises",
+												"be404850-f2e1-4867-b47f-e2cbc5c211cf"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "OfflineEntries",
+					"item": [
+						{
+							"name": "Test",
+							"item": []
+						},
+						{
+							"name": "Requests",
+							"item": [
+								{
+									"name": "Get All Offline Entries by UserId",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/offline-entries",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"offline-entries"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Add Offline Entry",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"let responseBody = pm.response.json();\r",
+													"pm.environment.set(\"offline_id\", responseBody.entryId);"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"dataType\": \"nutrition\",\r\n  \"dataContent\": \"Protein sdhake\",\r\n  \"syncStatus\": \"PENDING\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/offline-entries",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"offline-entries"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Edit Entry by ID",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"dataType\": \"nutrition\",\r\n  \"dataContent\": \"Protein shake\",\r\n  \"syncStatus\": \"SYNCED\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/offline-entries/{{offline_id}}",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"offline-entries",
+												"{{offline_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Entry",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"dataType\": \"nutrition\",\r\n  \"dataContent\": \"Protein shake\",\r\n  \"syncStatus\": \"SYNCED\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "{{URL}}/api/offline-entries/{{offline_id}}",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"offline-entries",
+												"{{offline_id}}"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Community",
+					"item": [
+						{
+							"name": "Posts APIs",
+							"item": [
+								{
+									"name": "Test",
+									"item": [
+										{
+											"name": "Create new post with no content",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {},
+														"requests": {}
+													}
+												}
+											],
+											"request": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n  \"content\": \"\",\r\n  \"imageUrl\": \"\"\r\n}\r\n",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{URL}}/api/posts",
+													"host": [
+														"{{URL}}"
+													],
+													"path": [
+														"api",
+														"posts"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Request",
+									"item": [
+										{
+											"name": "Create new post",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"let responseBody = pm.response.json();\r",
+															"pm.environment.set(\"post_id\", responseBody.postId);"
+														],
+														"type": "text/javascript",
+														"packages": {},
+														"requests": {}
+													}
+												},
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n  \"content\": \"Just finished a great workout session 💪🔥\",\r\n  \"imageUrl\": \"https://example.com/images/workout123.jpg\"\r\n}\r\n",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{URL}}/api/posts",
+													"host": [
+														"{{URL}}"
+													],
+													"path": [
+														"api",
+														"posts"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get all posts",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{URL}}/api/posts",
+													"host": [
+														"{{URL}}"
+													],
+													"path": [
+														"api",
+														"posts"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Delete post by ID",
+											"request": {
+												"method": "DELETE",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{URL}}/api/posts/{{post_id}}",
+													"host": [
+														"{{URL}}"
+													],
+													"path": [
+														"api",
+														"posts",
+														"{{post_id}}"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get post by ID",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{URL}}/api/posts/{{post_id}}",
+													"host": [
+														"{{URL}}"
+													],
+													"path": [
+														"api",
+														"posts",
+														"{{post_id}}"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Likes APIs",
+							"item": [
+								{
+									"name": "Like Post by Post_id",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{URL}}/api/posts/{{post_id}}/likes",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"posts",
+												"{{post_id}}",
+												"likes"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Like by Post_id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/posts/{{post_id}}/likes",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"posts",
+												"{{post_id}}",
+												"likes"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "HasUserLiked",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/posts/44eaf868-5466-4f94-9db7-d5ba699913f3/likes/hasUserLiked",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"posts",
+												"44eaf868-5466-4f94-9db7-d5ba699913f3",
+												"likes",
+												"hasUserLiked"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Comments APIs",
+							"item": [
+								{
+									"name": "Test",
+									"item": [
+										{
+											"name": "Add Empty Comment",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {},
+														"requests": {}
+													}
+												}
+											],
+											"request": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"content\" : \"\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{URL}}/api/posts/{{post_id}}/comments",
+													"host": [
+														"{{URL}}"
+													],
+													"path": [
+														"api",
+														"posts",
+														"{{post_id}}",
+														"comments"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Add Comment by Post_id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"let responseBody = pm.response.json();\r",
+													"pm.environment.set(\"comment_id\", responseBody.commentId);"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"content\" : \"Nice Workout♥\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/posts/{{post_id}}/comments",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"posts",
+												"{{post_id}}",
+												"comments"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Comment",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/posts/{{post_id}}/comments/{{comment_id}}",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"posts",
+												"{{post_id}}",
+												"comments",
+												"{{comment_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get all Comments",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/posts/{{post_id}}/comments",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"posts",
+												"{{post_id}}",
+												"comments"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Goal",
+					"item": [
+						{
+							"name": "Test",
+							"item": [
+								{
+									"name": "Create Goal Weight test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"description\": \"Lose 5 kg\",\r\n  \"status\": \"IN_PROGRESS\",\r\n  \"targetWeight\": -65.0,\r\n  \"currentWeight\": 70.0,\r\n  \"deadline\": \"2025-12-31\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/goals",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"goals"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Goal Target Weight test Copy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"description\": \"Lose 5 kg\",\r\n  \"status\": \"IN_PROGRESS\",\r\n  \"targetWeight\": 65.0,\r\n  \"currentWeight\": -70.0,\r\n  \"deadline\": \"2025-12-31\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/goals",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"goals"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Goal Deadline Test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"description\": \"Lose 5 kg\",\r\n  \"status\": \"IN_PROGRESS\",\r\n  \"targetWeight\": 65.0,\r\n  \"currentWeight\": 70.0,\r\n  \"deadline\": \"2024-12-31\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/goals",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"goals"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Goal Target Weight Test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"description\": \"Lose 5 kg\",\r\n  \"status\": \"IN_PROGRESS\",\r\n  \"targetWeight\": -65.0,\r\n  \"currentWeight\": -70.0,\r\n  \"deadline\": \"2025-12-31\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/goals/{{goal_id}}",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"goals",
+												"{{goal_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Goal Target Deadline Test",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"description\": \"Lose 5 kg\",\r\n  \"status\": \"IN_PROGRESS\",\r\n  \"targetWeight\": 65.0,\r\n  \"currentWeight\": -70.0,\r\n  \"deadline\": \"2025-12-31\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/goals/{{goal_id}}",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"goals",
+												"{{goal_id}}"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Request",
+							"item": [
+								{
+									"name": "Get Current User Goals",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{URL}}/api/goals",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"goals"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Goal By Id For Current User",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Banana\",\r\n  \"caloriesPer100g\": 52,\r\n  \"proteinPer100g\": 0.3,\r\n  \"carbsPer100g\": 14,\r\n  \"fatsPer100g\": 0.2,\r\n  \"fiberPer100g\": 2.4,\r\n  \"sugarPer100g\": 10.4,\r\n  \"category\": \"FRUIT\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "{{URL}}/api/goals/{{goal_id}}",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"goals",
+												"{{goal_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Restore Goal",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/goals/{{goal_id}}/restore",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"goals",
+												"{{goal_id}}",
+												"restore"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Goal",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{URL}}/api/goals/{{goal_id}}",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"goals",
+												"{{goal_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Goal For Current User",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"let responseBody = pm.response.json();\r",
+													"pm.environment.set(\"goal_id\", responseBody.id);"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"description\": \"Lose 5 kg\",\r\n  \"status\": \"IN_PROGRESS\",\r\n  \"targetWeight\": 65.0,\r\n  \"currentWeight\": 70.0,\r\n  \"deadline\": \"2025-12-31\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/goals",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"goals"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Goal",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"status\": \"NOT_STARTED\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/goals/{{goal_id}}",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"goals",
+												"{{goal_id}}"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Health Metric",
+					"item": [
+						{
+							"name": "Test",
+							"item": [
+								{
+									"name": "Create Health Metric weight test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"weight\": -70.5,\r\n  \"height\": 175,\r\n  \"bodyMeasurements\": {\r\n    \"chest\": 95,\r\n    \"waist\": 80,\r\n    \"hips\": 92,\r\n    \"neck\": 38,\r\n    \"biceps\": 32,\r\n    \"thighs\": 55,\r\n    \"calves\": 36\r\n  },\r\n  \"date\": \"2025-09-08\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/health-metrics",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"health-metrics"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Health Metric height test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"weight\": 70.5,\r\n  \"height\": -175,\r\n  \"bodyMeasurements\": {\r\n    \"chest\": 95,\r\n    \"waist\": 80,\r\n    \"hips\": 92,\r\n    \"neck\": 38,\r\n    \"biceps\": 32,\r\n    \"thighs\": 55,\r\n    \"calves\": 36\r\n  },\r\n  \"date\": \"2025-09-08\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/health-metrics",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"health-metrics"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Health Metric chest test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"weight\": 70.5,\r\n  \"height\": 175,\r\n  \"bodyMeasurements\": {\r\n    \"chest\": -95,\r\n    \"waist\": 80,\r\n    \"hips\": 92,\r\n    \"neck\": 38,\r\n    \"biceps\": 32,\r\n    \"thighs\": 55,\r\n    \"calves\": 36\r\n  },\r\n  \"date\": \"2025-09-08\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/health-metrics",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"health-metrics"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Health Metric waist test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"weight\": 70.5,\r\n  \"height\": 175,\r\n  \"bodyMeasurements\": {\r\n    \"chest\": 95,\r\n    \"waist\": -80,\r\n    \"hips\": 92,\r\n    \"neck\": 38,\r\n    \"biceps\": 32,\r\n    \"thighs\": 55,\r\n    \"calves\": 36\r\n  },\r\n  \"date\": \"2025-09-08\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/health-metrics",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"health-metrics"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Health Metric hips test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"weight\": 70.5,\r\n  \"height\": 175,\r\n  \"bodyMeasurements\": {\r\n    \"chest\": 95,\r\n    \"waist\": 80,\r\n    \"hips\": -92,\r\n    \"neck\": 38,\r\n    \"biceps\": 32,\r\n    \"thighs\": 55,\r\n    \"calves\": 36\r\n  },\r\n  \"date\": \"2025-09-08\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/health-metrics",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"health-metrics"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Health Metric neck test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"weight\": 70.5,\r\n  \"height\": 175,\r\n  \"bodyMeasurements\": {\r\n    \"chest\": 95,\r\n    \"waist\": 80,\r\n    \"hips\": 92,\r\n    \"neck\": -38,\r\n    \"biceps\": 32,\r\n    \"thighs\": 55,\r\n    \"calves\": 36\r\n  },\r\n  \"date\": \"2025-09-08\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/health-metrics",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"health-metrics"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Health Metric biceps test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"weight\": 70.5,\r\n  \"height\": 175,\r\n  \"bodyMeasurements\": {\r\n    \"chest\": 95,\r\n    \"waist\": 80,\r\n    \"hips\": 92,\r\n    \"neck\": 38,\r\n    \"biceps\": -32,\r\n    \"thighs\": 55,\r\n    \"calves\": 36\r\n  },\r\n  \"date\": \"2025-09-08\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/health-metrics",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"health-metrics"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Health Metric thighs",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"weight\": 70.5,\r\n  \"height\": 175,\r\n  \"bodyMeasurements\": {\r\n    \"chest\": 95,\r\n    \"waist\": 80,\r\n    \"hips\": 92,\r\n    \"neck\": 38,\r\n    \"biceps\": 32,\r\n    \"thighs\": -55,\r\n    \"calves\": 36\r\n  },\r\n  \"date\": \"2025-09-08\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/health-metrics",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"health-metrics"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Health Metric calves",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"weight\": 70.5,\r\n  \"height\": 175,\r\n  \"bodyMeasurements\": {\r\n    \"chest\": 95,\r\n    \"waist\": 80,\r\n    \"hips\": 92,\r\n    \"neck\": 38,\r\n    \"biceps\": 32,\r\n    \"thighs\": 55,\r\n    \"calves\": -36\r\n  },\r\n  \"date\": \"2025-09-08\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/health-metrics",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"health-metrics"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Health Metric date",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"weight\": 70.5,\r\n  \"height\": 175,\r\n  \"bodyMeasurements\": {\r\n    \"chest\": 95,\r\n    \"waist\": 80,\r\n    \"hips\": 92,\r\n    \"neck\": 38,\r\n    \"biceps\": 32,\r\n    \"thighs\": 55,\r\n    \"calves\": -36\r\n  },\r\n  \"date\": \"2023-09-08\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/health-metrics",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"health-metrics"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Request",
+							"item": [
+								{
+									"name": "Create Health Metric User",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"let responseBody = pm.response.json();\r",
+													"pm.environment.set(\"Health_Metric_id\", responseBody.id);"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"weight\": 70.5,\r\n  \"height\": 175,\r\n  \"bodyMeasurements\": {\r\n    \"chest\": 95,\r\n    \"waist\": 80,\r\n    \"hips\": 92,\r\n    \"neck\": 38,\r\n    \"biceps\": 32,\r\n    \"thighs\": 55,\r\n    \"calves\": 36\r\n  },\r\n  \"date\": \"2025-09-08\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/health-metrics",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"health-metrics"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Health Metric Admin",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{admintoken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"weight\": 70.5,\r\n  \"height\": 175,\r\n  \"bodyMeasurements\": {\r\n    \"chest\": 95,\r\n    \"waist\": 80,\r\n    \"hips\": 92,\r\n    \"neck\": 38,\r\n    \"biceps\": 32,\r\n    \"thighs\": 55,\r\n    \"calves\": 36\r\n  },\r\n  \"date\": \"2025-09-10\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/health-metrics?userId={{user_id}}",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"health-metrics"
+											],
+											"query": [
+												{
+													"key": "userId",
+													"value": "{{user_id}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get specific health metric user",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/health-metrics/{{Health_Metric_id}}",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"health-metrics",
+												"{{Health_Metric_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get specific health metric admin",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{admintoken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/health-metrics/{{Health_Metric_id}}?userId={{adminid}}",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"health-metrics",
+												"{{Health_Metric_id}}"
+											],
+											"query": [
+												{
+													"key": "userId",
+													"value": "{{adminid}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get all health metrics for specific user",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/health-metrics/user",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"health-metrics",
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get all health metrics for specific user admin",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/health-metrics/user?userId={{user id}}",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"health-metrics",
+												"user"
+											],
+											"query": [
+												{
+													"key": "userId",
+													"value": "{{user id}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get all health metrics for admin",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token admin}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/health-metrics/all",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"health-metrics",
+												"all"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update metric for user",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token user}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"weight\": 72,\r\n  \"height\": 176,\r\n  \"bodyMeasurements\": {\r\n    \"chest\": 96,\r\n    \"waist\": 79,\r\n    \"hips\": 91,\r\n    \"neck\": 39,\r\n    \"biceps\": 33,\r\n    \"thighs\": 56,\r\n    \"calves\": 38\r\n  },\r\n  \"date\": \"2025-09-09\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/health-metrics/{{Health_Metric_id}}",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"health-metrics",
+												"{{Health_Metric_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete metric user",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token user}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/health-metrics/{{health_metric}}",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"health-metrics",
+												"{{health_metric}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete metric admin",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token admin}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/health-metrics/{{health_metric}}?userId={{userId}}",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"health-metrics",
+												"{{health_metric}}"
+											],
+											"query": [
+												{
+													"key": "userId",
+													"value": "{{userId}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update metric for user admin",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token admin}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"weight\": 72,\r\n  \"height\": 176,\r\n  \"bodyMeasurements\": {\r\n    \"chest\": 96,\r\n    \"waist\": 79,\r\n    \"hips\": 91,\r\n    \"neck\": 39,\r\n    \"biceps\": 33,\r\n    \"thighs\": 56,\r\n    \"calves\": 38\r\n  },\r\n  \"date\": \"2025-09-09\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/health-metrics/{{health_metric}}?userId={{userId}}",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"health-metrics",
+												"{{health_metric}}"
+											],
+											"query": [
+												{
+													"key": "userId",
+													"value": "{{userId}}"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Workout Log",
+					"item": [
+						{
+							"name": "Test",
+							"item": []
+						},
+						{
+							"name": "Request",
+							"item": [
+								{
+									"name": "Create Workout Log User",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"let responseBody = pm.response.json();\r",
+													"pm.environment.set(\"workoutlog_id\", responseBody.logId);"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"workoutId\": \"{{workout_id}}\",\n  \"date\": \"2025-09-08\",\n  \"syncStatus\": \"PENDING\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/workout-logs",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"workout-logs"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Workout Log Admin",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{admintoken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"workoutId\": \"{{workout_id}}\",\n  \"date\": \"2025-09-08\",\n  \"syncStatus\": \"PENDING\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/workout-logs?userId={{adminid}}",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"workout-logs"
+											],
+											"query": [
+												{
+													"key": "userId",
+													"value": "{{adminid}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Specific Workout Log User",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token user}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/workout-logs/{{workout_log_id}}",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"workout-logs",
+												"{{workout_log_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Specific Workout Log Admin",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token admin}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/workout-logs/{{workout_log_id}}?userId={{userId}}",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"workout-logs",
+												"{{workout_log_id}}"
+											],
+											"query": [
+												{
+													"key": "userId",
+													"value": "{{userId}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get All Workout Logs For User",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token user}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/workout-logs/user",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"workout-logs",
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get All Workout Logs For User Admin",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token admin}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/workout-logs/user?userId={{userId}}",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"workout-logs",
+												"user"
+											],
+											"query": [
+												{
+													"key": "userId",
+													"value": "{{userId}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get All Workout Logs Admin",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token admin}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/workout-logs/all",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"workout-logs",
+												"all"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Workout Log User",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"date\": \"2025-09-09\",\n  \"syncStatus\": \"SYNCED\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/workout-logs/{{workoutlog_id}}",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"workout-logs",
+												"{{workoutlog_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Workout Log Admin",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token admin}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"date\": \"2025-09-09\",\n  \"syncStatus\": \"SYNCED\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/workout-logs/{{workout_log_id}}?userId={{userId}}",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"workout-logs",
+												"{{workout_log_id}}"
+											],
+											"query": [
+												{
+													"key": "userId",
+													"value": "{{userId}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Workout Log User",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token user}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/workout-logs/{{workout_log_id}}",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"workout-logs",
+												"{{workout_log_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Workout Log Admin",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token admin}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/workout-logs/{{workout_log_id}}?userId={{userId}}",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"workout-logs",
+												"{{workout_log_id}}"
+											],
+											"query": [
+												{
+													"key": "userId",
+													"value": "{{userId}}"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{usertoken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
