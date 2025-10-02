@@ -10,6 +10,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import jakarta.validation.Valid;
 
 import java.util.List;
 import java.util.UUID;
@@ -45,14 +46,14 @@ public class NutritionController {
     }
 
     @PostMapping
-    public ResponseEntity<NutritionDto> create(@RequestBody CreateNutritionDto dto) {
+    public ResponseEntity<NutritionDto> create(@Valid @RequestBody CreateNutritionDto dto) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(nutritionService.create(dto));
     }
 
     @PatchMapping("/{id}")
     public ResponseEntity<NutritionDto> update(@PathVariable UUID id,
-                                               @RequestBody UpdateNutritionDto dto) {
+                                               @Valid @RequestBody UpdateNutritionDto dto) {
         return ResponseEntity.ok(nutritionService.update(id, dto));
     }
 

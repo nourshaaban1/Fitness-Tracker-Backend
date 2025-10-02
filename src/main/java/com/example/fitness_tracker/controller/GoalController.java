@@ -40,7 +40,7 @@ public class GoalController {
 
     @PatchMapping("/{id}")
     public ResponseEntity<GoalDto> updateGoal(@PathVariable UUID id,
-                                              @RequestBody UpdateGoalDto dto) {
+                                              @Valid @RequestBody UpdateGoalDto dto) {
         return ResponseEntity.ok(goalService.updateGoal(id, dto));
     }
 
