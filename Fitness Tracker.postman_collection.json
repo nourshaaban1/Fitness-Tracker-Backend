@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ccd4c1d4-7438-4fed-9bf0-e3974edeb30a",
+		"_postman_id": "92aed908-9dcf-4392-92f1-e936835b1289",
 		"name": "Fitness Tracker",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "40414565"
@@ -17,6 +17,28 @@
 							"item": [
 								{
 									"name": "No Last Name Test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"request": {
 										"auth": {
 											"type": "noauth"
@@ -73,6 +95,28 @@
 								},
 								{
 									"name": "No First Name Test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"request": {
 										"auth": {
 											"type": "noauth"
@@ -129,6 +173,28 @@
 								},
 								{
 									"name": "Invalid Profile Picture",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"request": {
 										"auth": {
 											"type": "noauth"
@@ -150,7 +216,7 @@
 												},
 												{
 													"key": "email",
-													"value": "useradmin@example.com",
+													"value": "useradmin2@example.com",
 													"type": "text"
 												},
 												{
@@ -161,7 +227,7 @@
 												{
 													"key": "profilePic",
 													"type": "file",
-													"src": "/C:/Users/DELL/Fitness-Tracker-Backend/src/test/java/com/example/fitness_tracker/AuthTest.java"
+													"src": "/C:/Users/DELL/Fitness-Tracker-Backend/src/main/java/com/example/fitness_tracker/FitnessTrackerApplication.java"
 												},
 												{
 													"key": "role",
@@ -185,6 +251,28 @@
 								},
 								{
 									"name": "Invalid Email Test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"request": {
 										"auth": {
 											"type": "noauth"
@@ -542,7 +630,15 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													""
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"let jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Message is 'Invalid email or password'\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Invalid email or password\");\r",
+													"});"
 												],
 												"type": "text/javascript",
 												"packages": {},
@@ -596,7 +692,15 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													""
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"let jsonData = pm.response.json();  // turns response body into a JS object\r",
+													"\r",
+													"pm.test(\"Message is 'Invalid email or password'\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Invalid email or password\");\r",
+													"});"
 												],
 												"type": "text/javascript",
 												"packages": {},
@@ -623,7 +727,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"email\": \"testadmin@example.com\",\r\n    \"password\": \"123456\"\r\n}",
+											"raw": "{\r\n    \"email\": \"testadmin@example.com\",\r\n    \"password\": \"12346\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1141,6 +1245,21 @@
 					"item": [
 						{
 							"name": "Get All Profiles User Token Test",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -1171,6 +1290,21 @@
 						},
 						{
 							"name": "Update Profile Invalid Email Test",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -1252,7 +1386,11 @@
 									"script": {
 										"exec": [
 											"let responseBody = pm.response.json();\r",
-											"pm.environment.set(\"usertoken\", responseBody.token);"
+											"pm.environment.set(\"usertoken\", responseBody.token);\r",
+											"\r",
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
 										],
 										"type": "text/javascript",
 										"packages": {},
@@ -1262,8 +1400,12 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"exec": [],
-										"type": "text/javascript"
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
 									}
 								}
 							],
@@ -1306,7 +1448,7 @@
 										{
 											"key": "profilePic",
 											"type": "file",
-											"src": "/C:/Users/DELL/Fitness-Tracker-Backend/src/test/java/com/example/fitness_tracker/AuthTest.java"
+											"src": "/C:/Users/DELL/Fitness-Tracker-Backend/src/main/java/com/example/fitness_tracker/FitnessTrackerApplication.java"
 										},
 										{
 											"key": "theme",
@@ -1355,6 +1497,21 @@
 							"item": [
 								{
 									"name": "Create Nutrition No Name Test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"request": {
 										"method": "POST",
 										"header": [],
@@ -1382,17 +1539,22 @@
 								},
 								{
 									"name": "Create Nutrition Invalid Calories Test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "{{token}}",
-													"type": "string"
-												}
-											]
-										},
 										"method": "POST",
 										"header": [],
 										"body": {
@@ -1419,12 +1581,27 @@
 								},
 								{
 									"name": "Create Nutrition Invalid Proteins Test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"request": {
 										"method": "POST",
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"name\": \"Banana\",\r\n  \"caloriesPer100g\": 52,\r\n  \"proteinPer100g\": 0.3,\r\n  \"carbsPer100g\": 14,\r\n  \"fatsPer100g\": 0.2,\r\n  \"fiberPer100g\": 2.4,\r\n  \"sugarPer100g\": 10.4,\r\n  \"category\": \"FRUIT\"\r\n}\r\n",
+											"raw": "{\r\n  \"name\": \"Banana\",\r\n  \"caloriesPer100g\": 52,\r\n  \"proteinPer100g\": -0.3,\r\n  \"carbsPer100g\": 14,\r\n  \"fatsPer100g\": 0.2,\r\n  \"fiberPer100g\": 2.4,\r\n  \"sugarPer100g\": 10.4,\r\n  \"category\": \"FRUIT\"\r\n}\r\n",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1446,12 +1623,27 @@
 								},
 								{
 									"name": "Create Nutrition Invalid Carbs Test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"request": {
 										"method": "POST",
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"name\": \"Banana\",\r\n  \"caloriesPer100g\": 52,\r\n  \"proteinPer100g\": 0.3,\r\n  \"carbsPer100g\": 14,\r\n  \"fatsPer100g\": 0.2,\r\n  \"fiberPer100g\": 2.4,\r\n  \"sugarPer100g\": 10.4,\r\n  \"category\": \"FRUIT\"\r\n}\r\n",
+											"raw": "{\r\n  \"name\": \"Banana\",\r\n  \"caloriesPer100g\": 52,\r\n  \"proteinPer100g\": 0.3,\r\n  \"carbsPer100g\": -14,\r\n  \"fatsPer100g\": 0.2,\r\n  \"fiberPer100g\": 2.4,\r\n  \"sugarPer100g\": 10.4,\r\n  \"category\": \"FRUIT\"\r\n}\r\n",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1473,12 +1665,27 @@
 								},
 								{
 									"name": "Create Nutrition Invalid Fats Test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"request": {
 										"method": "POST",
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"name\": \"Banana\",\r\n  \"caloriesPer100g\": 52,\r\n  \"proteinPer100g\": 0.3,\r\n  \"carbsPer100g\": 14,\r\n  \"fatsPer100g\": 0.2,\r\n  \"fiberPer100g\": 2.4,\r\n  \"sugarPer100g\": 10.4,\r\n  \"category\": \"FRUIT\"\r\n}\r\n",
+											"raw": "{\r\n  \"name\": \"Banana\",\r\n  \"caloriesPer100g\": 52,\r\n  \"proteinPer100g\": 0.3,\r\n  \"carbsPer100g\": 14,\r\n  \"fatsPer100g\": -0.2,\r\n  \"fiberPer100g\": 2.4,\r\n  \"sugarPer100g\": 10.4,\r\n  \"category\": \"FRUIT\"\r\n}\r\n",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1500,12 +1707,27 @@
 								},
 								{
 									"name": "Create Nutrition Invalid Fibers Test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"request": {
 										"method": "POST",
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"name\": \"Banana\",\r\n  \"caloriesPer100g\": 52,\r\n  \"proteinPer100g\": 0.3,\r\n  \"carbsPer100g\": 14,\r\n  \"fatsPer100g\": 0.2,\r\n  \"fiberPer100g\": 2.4,\r\n  \"sugarPer100g\": 10.4,\r\n  \"category\": \"FRUIT\"\r\n}\r\n",
+											"raw": "{\r\n  \"name\": \"Banana\",\r\n  \"caloriesPer100g\": 52,\r\n  \"proteinPer100g\": 0.3,\r\n  \"carbsPer100g\": 14,\r\n  \"fatsPer100g\": 0.2,\r\n  \"fiberPer100g\": -2.4,\r\n  \"sugarPer100g\": 10.4,\r\n  \"category\": \"FRUIT\"\r\n}\r\n",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1527,12 +1749,27 @@
 								},
 								{
 									"name": "Create Nutrition Invalid Sugars Test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"request": {
 										"method": "POST",
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"name\": \"Banana\",\r\n  \"caloriesPer100g\": 52,\r\n  \"proteinPer100g\": 0.3,\r\n  \"carbsPer100g\": 14,\r\n  \"fatsPer100g\": 0.2,\r\n  \"fiberPer100g\": 2.4,\r\n  \"sugarPer100g\": 10.4,\r\n  \"category\": \"FRUIT\"\r\n}\r\n",
+											"raw": "{\r\n  \"name\": \"Banana\",\r\n  \"caloriesPer100g\": 52,\r\n  \"proteinPer100g\": 0.3,\r\n  \"carbsPer100g\": 14,\r\n  \"fatsPer100g\": 0.2,\r\n  \"fiberPer100g\": 2.4,\r\n  \"sugarPer100g\": -10.4,\r\n  \"category\": \"FRUIT\"\r\n}\r\n",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1554,12 +1791,27 @@
 								},
 								{
 									"name": "Update nutrition Invalid Sugar",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"request": {
 										"method": "PATCH",
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"caloriesPer100g\": 55,\r\n  \"fiberPer100g\": 3.1\r\n}\r\n",
+											"raw": "{\r\n  \"sugarPer100g\": -10.4\r\n}\r\n",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1567,14 +1819,14 @@
 											}
 										},
 										"url": {
-											"raw": "{{URL}}/api/nutrition/c2a6bd84-2585-4435-9a9d-d48a230ccb84",
+											"raw": "{{URL}}/api/nutrition/{{nutrition_id}}",
 											"host": [
 												"{{URL}}"
 											],
 											"path": [
 												"api",
 												"nutrition",
-												"c2a6bd84-2585-4435-9a9d-d48a230ccb84"
+												"{{nutrition_id}}"
 											]
 										}
 									},
@@ -1582,12 +1834,27 @@
 								},
 								{
 									"name": "Update nutrition Invalid Calories",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"request": {
 										"method": "PATCH",
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"caloriesPer100g\": 55,\r\n  \"fiberPer100g\": 3.1\r\n}\r\n",
+											"raw": "{\r\n  \"caloriesPer100g\": -55\r\n}\r\n",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1595,14 +1862,14 @@
 											}
 										},
 										"url": {
-											"raw": "{{URL}}/api/nutrition/c2a6bd84-2585-4435-9a9d-d48a230ccb84",
+											"raw": "{{URL}}/api/nutrition/{{nutrition_id}}",
 											"host": [
 												"{{URL}}"
 											],
 											"path": [
 												"api",
 												"nutrition",
-												"c2a6bd84-2585-4435-9a9d-d48a230ccb84"
+												"{{nutrition_id}}"
 											]
 										}
 									},
@@ -1610,12 +1877,27 @@
 								},
 								{
 									"name": "Update nutrition Invalid Proteins",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"request": {
 										"method": "PATCH",
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"caloriesPer100g\": 55,\r\n  \"fiberPer100g\": 3.1\r\n}\r\n",
+											"raw": "{\r\n  \"proteinsPer100g\": -55\r\n}\r\n",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1623,14 +1905,14 @@
 											}
 										},
 										"url": {
-											"raw": "{{URL}}/api/nutrition/c2a6bd84-2585-4435-9a9d-d48a230ccb84",
+											"raw": "{{URL}}/api/nutrition/{{nutrition_id}}",
 											"host": [
 												"{{URL}}"
 											],
 											"path": [
 												"api",
 												"nutrition",
-												"c2a6bd84-2585-4435-9a9d-d48a230ccb84"
+												"{{nutrition_id}}"
 											]
 										}
 									},
@@ -1638,12 +1920,27 @@
 								},
 								{
 									"name": "Update nutrition Invalid Carbs",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"request": {
 										"method": "PATCH",
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"caloriesPer100g\": 55,\r\n  \"fiberPer100g\": 3.1\r\n}\r\n",
+											"raw": "{\r\n  \"carbsPer100g\": -55\r\n}\r\n",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1651,14 +1948,14 @@
 											}
 										},
 										"url": {
-											"raw": "{{URL}}/api/nutrition/c2a6bd84-2585-4435-9a9d-d48a230ccb84",
+											"raw": "{{URL}}/api/nutrition/{{nutrition_id}}",
 											"host": [
 												"{{URL}}"
 											],
 											"path": [
 												"api",
 												"nutrition",
-												"c2a6bd84-2585-4435-9a9d-d48a230ccb84"
+												"{{nutrition_id}}"
 											]
 										}
 									},
@@ -1671,7 +1968,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"caloriesPer100g\": 55,\r\n  \"fiberPer100g\": 3.1\r\n}\r\n",
+											"raw": "{\r\n  \"fatsPer100g\": -55\r\n\r\n}\r\n",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1679,14 +1976,14 @@
 											}
 										},
 										"url": {
-											"raw": "{{URL}}/api/nutrition/c2a6bd84-2585-4435-9a9d-d48a230ccb84",
+											"raw": "{{URL}}/api/nutrition/{{nutrition_id}}",
 											"host": [
 												"{{URL}}"
 											],
 											"path": [
 												"api",
 												"nutrition",
-												"c2a6bd84-2585-4435-9a9d-d48a230ccb84"
+												"{{nutrition_id}}"
 											]
 										}
 									},
@@ -1694,12 +1991,27 @@
 								},
 								{
 									"name": "Update nutrition Invalid Fibers",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"request": {
 										"method": "PATCH",
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"caloriesPer100g\": 55,\r\n  \"fiberPer100g\": 3.1\r\n}\r\n",
+											"raw": "{\r\n  \"fiberPer100g\": -3.1\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1707,14 +2019,14 @@
 											}
 										},
 										"url": {
-											"raw": "{{URL}}/api/nutrition/c2a6bd84-2585-4435-9a9d-d48a230ccb84",
+											"raw": "{{URL}}/api/nutrition/{{nutrition_id}}",
 											"host": [
 												"{{URL}}"
 											],
 											"path": [
 												"api",
 												"nutrition",
-												"c2a6bd84-2585-4435-9a9d-d48a230ccb84"
+												"{{nutrition_id}}"
 											]
 										}
 									},
@@ -1930,6 +2242,21 @@
 							"item": [
 								{
 									"name": "Create Exercise No Name",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"request": {
 										"method": "POST",
 										"header": [],
@@ -1957,6 +2284,21 @@
 								},
 								{
 									"name": "Update Exercise No Name",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"request": {
 										"method": "PATCH",
 										"header": [],
@@ -2162,7 +2504,9 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													""
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
 												],
 												"type": "text/javascript",
 												"packages": {},
@@ -2172,8 +2516,12 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"exec": [],
-												"type": "text/javascript"
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
 											}
 										}
 									],
@@ -2204,6 +2552,21 @@
 								},
 								{
 									"name": "Update Workout No Name",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"request": {
 										"method": "PUT",
 										"header": [],
@@ -2691,6 +3054,21 @@
 									"item": [
 										{
 											"name": "Create new post with no content",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {},
+														"requests": {}
+													}
+												}
+											],
 											"request": {
 												"method": "POST",
 												"header": [],
@@ -2922,22 +3300,27 @@
 									"item": [
 										{
 											"name": "Add Empty Comment",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {},
+														"requests": {}
+													}
+												}
+											],
 											"request": {
-												"auth": {
-													"type": "bearer",
-													"bearer": [
-														{
-															"key": "token",
-															"value": "{{vault:authorization-secret}}",
-															"type": "string"
-														}
-													]
-												},
 												"method": "POST",
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\r\n    \"content\" : \"Nice Workout♥\"\r\n}",
+													"raw": "{\r\n    \"content\" : \"\"\r\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -2945,14 +3328,14 @@
 													}
 												},
 												"url": {
-													"raw": "{{URL}}/api/posts/c4458113-42b6-4f17-85cb-71cb9862a33f/comments",
+													"raw": "{{URL}}/api/posts/{{post_id}}/comments",
 													"host": [
 														"{{URL}}"
 													],
 													"path": [
 														"api",
 														"posts",
-														"c4458113-42b6-4f17-85cb-71cb9862a33f",
+														"{{post_id}}",
 														"comments"
 													]
 												}
@@ -3064,12 +3447,27 @@
 							"item": [
 								{
 									"name": "Create Goal Weight test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"request": {
 										"method": "POST",
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"description\": \"Lose 5 kg\",\r\n  \"status\": \"IN_PROGRESS\",\r\n  \"targetWeight\": 65.0,\r\n  \"currentWeight\": 70.0,\r\n  \"deadline\": \"2025-12-31\"\r\n}\r\n",
+											"raw": "{\r\n  \"description\": \"Lose 5 kg\",\r\n  \"status\": \"IN_PROGRESS\",\r\n  \"targetWeight\": -65.0,\r\n  \"currentWeight\": 70.0,\r\n  \"deadline\": \"2025-12-31\"\r\n}\r\n",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -3091,12 +3489,27 @@
 								},
 								{
 									"name": "Create Goal Target Weight test Copy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"request": {
 										"method": "POST",
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"description\": \"Lose 5 kg\",\r\n  \"status\": \"IN_PROGRESS\",\r\n  \"targetWeight\": 65.0,\r\n  \"currentWeight\": 70.0,\r\n  \"deadline\": \"2025-12-31\"\r\n}\r\n",
+											"raw": "{\r\n  \"description\": \"Lose 5 kg\",\r\n  \"status\": \"IN_PROGRESS\",\r\n  \"targetWeight\": 65.0,\r\n  \"currentWeight\": -70.0,\r\n  \"deadline\": \"2025-12-31\"\r\n}\r\n",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -3118,12 +3531,27 @@
 								},
 								{
 									"name": "Create Goal Deadline Test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"request": {
 										"method": "POST",
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"description\": \"Lose 5 kg\",\r\n  \"status\": \"IN_PROGRESS\",\r\n  \"targetWeight\": 65.0,\r\n  \"currentWeight\": 70.0,\r\n  \"deadline\": \"2025-12-31\"\r\n}\r\n",
+											"raw": "{\r\n  \"description\": \"Lose 5 kg\",\r\n  \"status\": \"IN_PROGRESS\",\r\n  \"targetWeight\": 65.0,\r\n  \"currentWeight\": 70.0,\r\n  \"deadline\": \"2024-12-31\"\r\n}\r\n",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -3144,41 +3572,28 @@
 									"response": []
 								},
 								{
-									"name": "Update Goal Weight Test",
-									"request": {
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"status\": \"NOT_STARTED\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{URL}}/api/goals/1e5c32fe-4fae-4c64-a638-630bc1105c74",
-											"host": [
-												"{{URL}}"
-											],
-											"path": [
-												"api",
-												"goals",
-												"1e5c32fe-4fae-4c64-a638-630bc1105c74"
-											]
-										}
-									},
-									"response": []
-								},
-								{
 									"name": "Update Goal Target Weight Test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"request": {
 										"method": "PATCH",
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"status\": \"NOT_STARTED\"\r\n}",
+											"raw": "{\r\n  \"description\": \"Lose 5 kg\",\r\n  \"status\": \"IN_PROGRESS\",\r\n  \"targetWeight\": -65.0,\r\n  \"currentWeight\": -70.0,\r\n  \"deadline\": \"2025-12-31\"\r\n}\r\n",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -3186,14 +3601,14 @@
 											}
 										},
 										"url": {
-											"raw": "{{URL}}/api/goals/1e5c32fe-4fae-4c64-a638-630bc1105c74",
+											"raw": "{{URL}}/api/goals/{{goal_id}}",
 											"host": [
 												"{{URL}}"
 											],
 											"path": [
 												"api",
 												"goals",
-												"1e5c32fe-4fae-4c64-a638-630bc1105c74"
+												"{{goal_id}}"
 											]
 										}
 									},
@@ -3206,7 +3621,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"status\": \"NOT_STARTED\"\r\n}",
+											"raw": "{\r\n  \"description\": \"Lose 5 kg\",\r\n  \"status\": \"IN_PROGRESS\",\r\n  \"targetWeight\": 65.0,\r\n  \"currentWeight\": -70.0,\r\n  \"deadline\": \"2025-12-31\"\r\n}\r\n",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -3214,14 +3629,14 @@
 											}
 										},
 										"url": {
-											"raw": "{{URL}}/api/goals/1e5c32fe-4fae-4c64-a638-630bc1105c74",
+											"raw": "{{URL}}/api/goals/{{goal_id}}",
 											"host": [
 												"{{URL}}"
 											],
 											"path": [
 												"api",
 												"goals",
-												"1e5c32fe-4fae-4c64-a638-630bc1105c74"
+												"{{goal_id}}"
 											]
 										}
 									},
@@ -3414,17 +3829,22 @@
 							"item": [
 								{
 									"name": "Create Health Metric weight test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "{{token user}}",
-													"type": "string"
-												}
-											]
-										},
 										"method": "POST",
 										"header": [],
 										"body": {
@@ -3452,17 +3872,22 @@
 								},
 								{
 									"name": "Create Health Metric height test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "{{token user}}",
-													"type": "string"
-												}
-											]
-										},
 										"method": "POST",
 										"header": [],
 										"body": {
@@ -3490,17 +3915,22 @@
 								},
 								{
 									"name": "Create Health Metric chest test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "{{token user}}",
-													"type": "string"
-												}
-											]
-										},
 										"method": "POST",
 										"header": [],
 										"body": {
@@ -3528,17 +3958,22 @@
 								},
 								{
 									"name": "Create Health Metric waist test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "{{token user}}",
-													"type": "string"
-												}
-											]
-										},
 										"method": "POST",
 										"header": [],
 										"body": {
@@ -3566,17 +4001,22 @@
 								},
 								{
 									"name": "Create Health Metric hips test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "{{token user}}",
-													"type": "string"
-												}
-											]
-										},
 										"method": "POST",
 										"header": [],
 										"body": {
@@ -3604,17 +4044,22 @@
 								},
 								{
 									"name": "Create Health Metric neck test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "{{token user}}",
-													"type": "string"
-												}
-											]
-										},
 										"method": "POST",
 										"header": [],
 										"body": {
@@ -3642,17 +4087,22 @@
 								},
 								{
 									"name": "Create Health Metric biceps test",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "{{token user}}",
-													"type": "string"
-												}
-											]
-										},
 										"method": "POST",
 										"header": [],
 										"body": {
@@ -3680,17 +4130,22 @@
 								},
 								{
 									"name": "Create Health Metric thighs",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "{{token user}}",
-													"type": "string"
-												}
-											]
-										},
 										"method": "POST",
 										"header": [],
 										"body": {
@@ -3718,17 +4173,22 @@
 								},
 								{
 									"name": "Create Health Metric calves",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "{{token user}}",
-													"type": "string"
-												}
-											]
-										},
 										"method": "POST",
 										"header": [],
 										"body": {
@@ -3756,17 +4216,22 @@
 								},
 								{
 									"name": "Create Health Metric date",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "{{token user}}",
-													"type": "string"
-												}
-											]
-										},
 										"method": "POST",
 										"header": [],
 										"body": {
@@ -4047,7 +4512,7 @@
 											}
 										},
 										"url": {
-											"raw": "http://localhost:8080/health-metrics/{{health_metric}}",
+											"raw": "http://localhost:8080/health-metrics/{{Health_Metric_id}}",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -4055,52 +4520,7 @@
 											"port": "8080",
 											"path": [
 												"health-metrics",
-												"{{health_metric}}"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "update metric for user admin",
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "{{token admin}}",
-													"type": "string"
-												}
-											]
-										},
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n  \"weight\": 72,\r\n  \"height\": 176,\r\n  \"bodyMeasurements\": {\r\n    \"chest\": 96,\r\n    \"waist\": 79,\r\n    \"hips\": 91,\r\n    \"neck\": 39,\r\n    \"biceps\": 33,\r\n    \"thighs\": 56,\r\n    \"calves\": 38\r\n  },\r\n  \"date\": \"2025-09-09\"\r\n}\r\n",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "http://localhost:8080/health-metrics/{{health_metric}}?userId={{userId}}",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "8080",
-											"path": [
-												"health-metrics",
-												"{{health_metric}}"
-											],
-											"query": [
-												{
-													"key": "userId",
-													"value": "{{userId}}"
-												}
+												"{{Health_Metric_id}}"
 											]
 										}
 									},
@@ -4151,6 +4571,51 @@
 										},
 										"method": "DELETE",
 										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/health-metrics/{{health_metric}}?userId={{userId}}",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"health-metrics",
+												"{{health_metric}}"
+											],
+											"query": [
+												{
+													"key": "userId",
+													"value": "{{userId}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update metric for user admin",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token admin}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"weight\": 72,\r\n  \"height\": 176,\r\n  \"bodyMeasurements\": {\r\n    \"chest\": 96,\r\n    \"waist\": 79,\r\n    \"hips\": 91,\r\n    \"neck\": 39,\r\n    \"biceps\": 33,\r\n    \"thighs\": 56,\r\n    \"calves\": 38\r\n  },\r\n  \"date\": \"2025-09-09\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
 										"url": {
 											"raw": "http://localhost:8080/health-metrics/{{health_metric}}?userId={{userId}}",
 											"protocol": "http",
