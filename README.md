@@ -113,6 +113,4 @@ mvnw.cmd test
 - The frontend expects the backend API to run at the address configured in the frontend repo. If running both locally, start the backend first and then the frontend.
 - See Postman collections for sample requests and auth flows.
 
----
 
-If you'd like, I can also add a short section with environment variable examples, or update `application.yml` with a development profile example — tell me which you'd prefer.
