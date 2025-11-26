@@ -114,6 +114,17 @@
 			<version>2.21.1</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>4.35.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.github.bonigarcia</groupId>
+			<artifactId>webdrivermanager</artifactId>
+			<version>6.1.0</version>
+		</dependency>
 
 		<!-- ModelMapper -->
 		<dependency>
@@ -141,19 +152,24 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<annotationProcessorPaths>
-						<path>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</path>
-					</annotationProcessorPaths>
-				</configuration>
-			</plugin>
-			<!-- Spring Boot -->
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>3.8.1</version> <configuration>
+				<source>21</source> <target>21</target> <annotationProcessorPaths>
+				<path>
+					<groupId>org.projectlombok</groupId>
+					<artifactId>lombok</artifactId>
+					<version>${lombok.version}</version> </path>
+				<path>
+					<groupId>org.mapstruct</groupId>
+					<artifactId>mapstruct-processor</artifactId>
+					<version>${mapstruct.version}</version>
+				</path>
+				<path>
+					<groupId>org.projectlombok</groupId>
+					<artifactId>lombok-mapstruct-binding</artifactId>
+					<version>0.2.0</version>
+				</path>
+			</annotationProcessorPaths>
+			</configuration>
 			</plugin>
 		</plugins>
 	</build>

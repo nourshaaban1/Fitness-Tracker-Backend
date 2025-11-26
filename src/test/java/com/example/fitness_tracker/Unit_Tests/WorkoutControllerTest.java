@@ -1,4 +1,4 @@
-package com.example.fitness_tracker;
+package com.example.fitness_tracker.Unit_Tests;
 
 import com.example.fitness_tracker.controller.WorkoutController;
 import com.example.fitness_tracker.domain.dto.Workout.CreateWorkoutDto;

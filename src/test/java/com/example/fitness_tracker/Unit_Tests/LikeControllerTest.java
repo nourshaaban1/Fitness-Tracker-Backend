@@ -1,4 +1,4 @@
-package com.example.fitness_tracker;
+package com.example.fitness_tracker.Unit_Tests;
 
 import com.example.fitness_tracker.controller.LikeController;
 import com.example.fitness_tracker.security.JwtService;

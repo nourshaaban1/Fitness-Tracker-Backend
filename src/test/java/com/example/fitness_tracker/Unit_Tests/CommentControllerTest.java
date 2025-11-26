@@ -1,4 +1,4 @@
-package com.example.fitness_tracker;
+package com.example.fitness_tracker.Unit_Tests;
 
 import com.example.fitness_tracker.controller.CommentController;
 import com.example.fitness_tracker.domain.dto.Community.CommentCreateDto;
