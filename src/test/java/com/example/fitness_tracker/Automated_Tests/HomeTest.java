@@ -1,0 +1,19 @@
+package com.example.fitness_tracker.Automated_Tests;
+
+import Pages.LoginPage;
+import Pages.RegisterPage;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+public class HomeTest extends BaseTest{
+    @Test
+    void testRedirectToLoginPage() throws InterruptedException {
+        LoginPage loginPage = homepage.redirectToLogin();
+        Assertions.assertTrue(loginPage.isLoginButtonVisible());
+    }
+    @Test
+    void testRedirectToRegisterPage(){
+        RegisterPage  registerPage= homepage.redirectToRegister();
+        Assertions.assertTrue(registerPage.isRegisterButtonVisible());
+    }
+}
