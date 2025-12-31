@@ -2,7 +2,6 @@ package com.example.fitness_tracker.Automated_Tests;
 
 import Pages.LoginPage;
 import Pages.RegisterPage;
-import io.jsonwebtoken.lang.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
