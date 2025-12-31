@@ -9,11 +9,11 @@ public class HomeTest extends BaseTest{
     @Test
     void testRedirectToLoginPage() throws InterruptedException {
         LoginPage loginPage = homepage.redirectToLogin();
-        Assertions.assertEquals(true, loginPage.isLoginButtonVisible());
+        Assertions.assertTrue(loginPage.isLoginButtonVisible());
     }
     @Test
     void testRedirectToRegisterPage(){
         RegisterPage  registerPage= homepage.redirectToRegister();
-        Assertions.assertEquals(true, registerPage.isRegisterButtonVisible());
+        Assertions.assertTrue(registerPage.isRegisterButtonVisible());
     }
 }
