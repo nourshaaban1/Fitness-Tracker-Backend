@@ -2,7 +2,6 @@ package com.example.fitness_tracker.Automated_Tests;
 
 import Pages.LoginPage;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.support.ui.Sleeper;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
