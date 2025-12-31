@@ -5,7 +5,6 @@ import Pages.RegisterPage;
 import io.jsonwebtoken.lang.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 
 public class HomeTest extends BaseTest{
     @Test
